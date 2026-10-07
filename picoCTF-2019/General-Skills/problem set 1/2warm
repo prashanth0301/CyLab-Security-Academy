@@ -1,0 +1,28 @@
+
+---
+tags: [picoctf2019, General-Skills, Easy]
+challenge_name: 2warm
+solved_date: 2026-10-07
+---
+
+# 🚩 Challenge: [2warm]
+
+## 📝 Challenge Description
+![base2binary](2warm.png)
+Q.Can you convert the number 42 (base 10) to binary (base 2)?
+
+hints:
+1. Submit your answer in our competition's flag format. For example, if your answer was '11111', you would submit 'academy{11111}' as the flag.
+
+## 🚀  Solution 
+Detail your step-by-step breakdown to get the flag:
+1. python 
+$ python3 -c "print(bin(42))"
+or 
+2. linux cmdline
+$ echo "obase=2; 42" | bc
+101010
+
+
+## 🏁 Flag
+academy{101010}

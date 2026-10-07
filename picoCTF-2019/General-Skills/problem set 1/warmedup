@@ -1,0 +1,26 @@
+
+---
+tags: [picoctf2019, General-Skills, Easy]
+challenge_name: Warmed Up
+solved_date: 2026-10-07
+---
+
+# 🚩 Challenge: [Warmed Up]
+
+## 📝 Challenge Description
+![hexdecimal to decimal](../warmedup.png)
+Q. What is 0x3D (base 16) in decimal (base 10)?
+
+hints:
+1. Submit your answer in our flag format. For example, if your answer was '22', you would submit 'academy{22}' as the flag.
+
+## 🚀  Solution 
+Detail your step-by-step breakdown to get the flag:
+1. Python: Open a python terminal and type 0x3D to instantly get 61.
+or
+2. Linux Terminal / Bash: Run printf '%d\n' 0x3D.
+or
+3. Web Browser Console: Hit F12, go to the Console tab, and type parseInt("3D", 16).
+
+## 🏁 Flag
+academy{61}

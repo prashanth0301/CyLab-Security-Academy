@@ -1,0 +1,23 @@
+---
+tags: [picoctf2019, General-Skills, Easy]
+challenge_name: Lets Warm Up
+solved_date: 2026-10-07
+---
+
+# 🚩 Challenge: [Lets Warm Up]
+
+## 📝 Challenge Description
+![hexadecimal to ascii](letswarmup.png)
+Q.If I told you a word started with 0x70 in hexadecimal, what would it start with in ASCII?
+hints:
+1. Submit your answer in our flag format. For example, if your answer was 'hello', you would submit 'academy{hello}' as the flag.
+
+## 🚀  Solution 
+Detail your step-by-step breakdown to get the flag:
+1. Using Python: Open a terminal, run Python, and type chr(0x70) to get 'p'.
+or
+2. Using Bash: Run echo -e "\x70" in your shell.
+3. Using an online tool: Paste 70 into an online hex-to-ASCII converter like RapidTables or CyberChef.
+
+## 🏁 Flag
+academy{p}
