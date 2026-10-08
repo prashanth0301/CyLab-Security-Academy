@@ -1,0 +1,28 @@
+---
+tags: [picoctf2019, General-Skills, Easy]
+challenge_name: What's a net cat
+solved_date: 2026-10-08
+---
+
+# 🚩 Challenge: [What's a net cat]
+![netcat_description_image](../netcat.png)
+## 📝 Challenge Description
+> Paste the exact description text or hints provided by picoCTF here.
+
+Q. Using netcat (nc) is going to be pretty important. Can you connect to xebec.cylabacademy.net at port 39109 to get the flag?
+
+Hints:
+1. nc tutorial or nc https://linux.die.net/man/1/nc
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. nc xebec.cylabacademy.net 39109
+You're on your way to becoming the net cat master
+academy{nEtCat_Mast3ry_Bc0C3F60}
+
+---
+
+## 🏁 Flag
+academy{nEtCat_Mast3ry_Bc0C3F60}

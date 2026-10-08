@@ -1,5 +1,5 @@
 ---
-tags: [picoctf2019, General-Skills, Easy]
+tags: [picoCTF2019, General-Skills, Easy]
 challenge_name: Lets Warm Up
 solved_date: 2026-10-07
 ---
@@ -15,8 +15,9 @@ hints:
 ## 🚀  Solution 
 Detail your step-by-step breakdown to get the flag:
 1. Using Python: Open a terminal, run Python, and type chr(0x70) to get 'p'.
-or
+OR
 2. Using Bash: Run echo -e "\x70" in your shell.
+OR
 3. Using an online tool: Paste 70 into an online hex-to-ASCII converter like RapidTables or CyberChef.
 
 ## 🏁 Flag

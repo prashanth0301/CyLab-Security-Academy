@@ -1,6 +1,6 @@
 
 ---
-tags: [picoctf2019, General-Skills, Easy]
+tags: [picoCTF2019, General-Skills, Easy]
 challenge_name: 2warm
 solved_date: 2026-10-07
 ---
@@ -8,7 +8,7 @@ solved_date: 2026-10-07
 # 🚩 Challenge: [2warm]
 
 ## 📝 Challenge Description
-![base2binary](2warm.png)
+![base2binary](../2warm.png)
 Q.Can you convert the number 42 (base 10) to binary (base 2)?
 
 hints:
