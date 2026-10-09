@@ -18,7 +18,7 @@ Hints
 
 ### Code / Terminal Snippets
 
-1. ctf-player@xebec.cylabacademy.net 13051
+1. ssh ctf-player@xebec.cylabacademy.net 13051
 2. ![cmd_ouptut](flag.png)
 
 ---
