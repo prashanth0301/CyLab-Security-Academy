@@ -1,0 +1,46 @@
+---
+tags: [picoCTF2022, General-Sills, Easy]
+challenge_name: Big Zip
+solved_date: 2026-10-10
+---
+
+# 🚩 Challenge: [Big Zip]
+![big_zip description](../bigzip.png)
+## 📝 Challenge Description
+> Paste the exact description text or hints provided by picoCTF here.
+Unzip this archive and find the flag.
+Download zip file
+Hints:
+1. Can grep be instructed to look at every file in a directory and its subdirectories?
+
+### Code / Terminal Snippets
+1. wget https://challenge-files.cylabacademy.net/library/b150f6f4d21f46fc2bba57ef49c7305541fa8e9bfa4241dfe8d066b99de56200/big-zip-files.zip
+2. ls
+3. unzip big-zip-files.zip
+4. grep -r "academy" big-zip-files
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the zip file using "wget"
+2. Enter ls and see the zipped file
+3. unzip the zipped file "Big-zip-file"
+4. Enter ls
+5. Find the flag "academy" using grep command
+
+---
+
+## 🏁 Flag
+academy{gr3p_15_m4g1c_ef8790dc}
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+unzipping the zipped file and searching the pattern "academy" in unzipped file using grep command recursively with "-r".
+* What commands or tools did you use?
+unzip
+grep
+ls
+cd
+
+---

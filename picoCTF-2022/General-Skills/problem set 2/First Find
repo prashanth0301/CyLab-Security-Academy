@@ -1,0 +1,46 @@
+---
+tags: [picoCTF2022, General-Skils, Easy]
+challenge_name: First Find
+solved_date: 2026-10-10
+---
+
+# 🚩 Challenge: [First Find]
+![firstfind_description](../firstfind.png)
+## 📝 Challenge Description
+> Paste the exact description text or hints provided by picoCTF here.
+Unzip this archive and find the file named 'uber-secret.txt'
+Download zip file
+
+---
+
+
+### Code / Terminal Snippets
+1. wget https://challenge-files.cylabacademy.net/library/72ca8cb60e55a597886dfb8e20bdb28d3ea7e73ca72987eb813a3558a8dd22bf/files.zip
+2. ls
+3. unzip files.zip
+4. find . -type f -name "uber-secret.txt"
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. download or clone the zip file.
+2. enter ls and see the zipped files.
+3. unzip the zipped files.
+4. find the "uber-secret.txt" file in files directory.
+
+---
+
+## 🏁 Flag
+academy{f1nd_15_f457_ab443fd1}
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+unzipping of zipped files and finding a file 
+* What commands or tools did you use?
+unzip
+find
+cd
+ls
+
+---

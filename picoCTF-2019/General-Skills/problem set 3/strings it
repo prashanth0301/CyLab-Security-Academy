@@ -1,0 +1,44 @@
+---
+tags: [picoCTF2019, General-Skills, Easy]
+challenge_name: strings it
+solved_date: 2026-10-10
+---
+
+# 🚩 Challenge: [strings it]
+![description](../strings_it.png)
+## 📝 Challenge Description
+> Paste the exact description text or hints provided by picoCTF here.
+Can you find the flag in file
+ without running it?
+
+Hints:
+1. strings
+
+
+### Code / Terminal Snippets
+1. wget https://challenge-files.cylabacademy.net/library/badce1db694f2fe71ecd915ef2eeb78d799c90b1bc230960ce03ef0074573616/strings
+2. ls
+3. strings strings | grep academy
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the file using "wget"
+2. Enter ls
+3. search the file "strings" using strings command and grep command
+
+
+---
+
+## 🏁 Flag
+academy{5tRIng5_1T_0c2e1fc3}
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+searching the  pattern "academy" using strings and grep
+* What commands or tools did you use?
+strings
+grep
+ls
+---

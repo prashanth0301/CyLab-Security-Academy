@@ -1,0 +1,46 @@
+---
+tags: [picoCTF2021, General-Skills, Easy]
+challenge_name: static aint always noise
+solved_date: 2026-10-10
+---
+
+# 🚩 Challenge: [static aint always noise]
+![static_noise_description](static_nose.png)
+## 📝 Challenge Description
+> Paste the exact description text or hints provided by picoCTF here.
+Can you look at the data in this binary? The bash script might help! static
+, ltdis.sh
+
+### Code / Terminal Snippets
+1. wget https://challenge-files.cylabacademy.net/library/acbe8b20d09f77f775fbaaa76c55472213f8227409c856bd51cd2af401c7d0b6/static
+2. wget https://challenge-files.cylabacademy.net/library/acbe8b20d09f77f775fbaaa76c55472213f8227409c856bd51cd2af401c7d0b6/ltdis.sh
+3. ls
+4. bash ltdis.sh static
+5. grep "academy" static.ltdis.strings.txt
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download  both "static" and "ltdis.sh" files
+2. Enter ls
+3. see the contents inside both files
+4. Enter the command with "bash ltdis.sh static" to disassemble the files
+5. See the contents in latest retreived files.
+
+
+
+---
+
+## 🏁 Flag
+academy{d15a5m_t34s3r_fac3431a}
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+How to disassembe the files and find the flag after extracting the files
+* What commands or tools did you use?
+wget
+ls
+bash
+cat
+---

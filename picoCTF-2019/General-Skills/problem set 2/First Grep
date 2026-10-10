@@ -1,0 +1,42 @@
+---
+tags: [picoCTF2019, General-Skills, Easy]
+challenge_name: First Grep
+solved_date: 2026-10-10
+---
+
+# 🚩 Challenge: [First Grep]
+![grep_description](../firstgrep.png)
+## 📝 Challenge Description
+> Paste the exact description text or hints provided by picoCTF here.
+Can you find the flag in the file? This would be really tedious to look through manually, something tells me there is a better way. The flag is in this file
+
+Hints:
+1. grep tutorial
+
+### Code / Terminal Snippets
+
+
+1. wget https://challenge-files.cylabacademy.net/library/c5776a714a5a4df46bfb12dad8e17c62d249f640324c41a96ec413361397a92a/file
+2. ls
+3. strings file | grep -oE 'academy\{[^}]*\}'
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. clone the file link with "wget"
+2. enter ls and see a file just copied
+3. enter the grep command with cat or strings command
+
+## 🏁 Flag
+academy{grep_is_good_to_find_things_B46b9BE8}
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+I learnt how to retrieve the flag from long text with grep and cat
+* What commands or tools did you use for the first time?
+cat
+strings
+grep
+|
+---

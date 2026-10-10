@@ -1,0 +1,42 @@
+---
+tags: [picoCTF2019, General-Skills, Medium]
+challenge_name: Plumbing
+solved_date: 2026-10-10
+---
+
+# 🚩 Challenge: [Plumbing]
+![plumbing_description](../plumbing.png)
+## 📝 Challenge Description
+> Paste the exact description text or hints provided by picoCTF here.
+
+Sometimes you need to handle process data outside of a file. Can you find a way to keep the output from this program and search for the flag? Connect to chatelaine.cylabacademy.net 33428.
+
+Instance
+Expires in 14:00
+Hints:
+1. Remember the flag format is academy{XXXX}
+
+2. What's a pipe? No not that kind of pipe... This kind
+
+### Code / Terminal Snippets
+1. nc chatelaine.cylabacademy.net 33428 | grep academy
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. open the session with netcat and add the grep command with pattern "academy" using pipe(|) command.
+
+---
+
+## 🏁 Flag
+academy{digital_plumb3r_Fe44eBAe}
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+pattern finding with grep at a time while opening the session with netcat  
+* What commands or tools did you use?
+nc
+grep
+|
+---
