@@ -1,0 +1,53 @@
+---
+tags: [picoCTF2022, General-Skills, Easy]
+challenge_name: PW Crack 2
+solved_date: 2026-10-11
+---
+
+# 🚩 Challenge: [PW Crack 2]
+![pw2_description](../pw_crack2.png)
+## 📝 Challenge Description
+Can you crack the password to get the flag? Download the password checker here
+ and you'll need the encrypted flag
+ in the same directory too.
+
+Hints:
+1. Does that encoding look familiar?
+
+2. The str_xor function does not need to be reverse engineered for this challenge.
+
+ 
+
+### Code / Terminal Snippets
+1. wget https://challenge-files.cylabacademy.net/library/227623e9501e3a811cdf5b1c7a2079f75b2e9ab243364a38830e0a4a2943ce2e/level2.py
+2. wget https://challenge-files.cylabacademy.net/library/227623e9501e3a811cdf5b1c7a2079f75b2e9ab243364a38830e0a4a2943ce2e/level2.flag.txt.enc
+3. python level2.py
+4. nano level2.py
+5. python
+6. chr(0x34) + chr(0x65) + chr(0x63) + chr(0x39)
+7. python level2.py
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the both files "here" and "flag" using "wget".
+2. Run python level2.py and it prompts to enter password.
+3. Open level2.py file content and copy the "chr(0x34) + chr(0x65) + chr(0x63) + chr(0x39)" and findout the value for those using python interpreter and press ctrl+z to exit.
+4. Again run the level2.py file and enter the password.
+5. The flag will appear.
+
+
+---
+
+## 🏁 Flag
+academy{tr45h_51ng1ng_d99a9ef4}
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+converting of hexadecimal value to ASCII using python interpreter
+* What commands or tools did you use?
+1. wget
+2. nano
+3. python
+---

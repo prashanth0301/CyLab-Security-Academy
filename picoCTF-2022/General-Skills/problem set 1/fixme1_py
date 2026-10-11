@@ -1,0 +1,52 @@
+---
+tags: [picoCTF2022, General-Skills, Easy]
+challenge_name: fixme1.py
+solved_date: 2026-10-11
+---
+
+# 🚩 Challenge: [fixme1.py]
+![fixme1_description](../fixme1.png)
+## 📝 Challenge Description
+Q. Fix the syntax error in this Python script to print the flag.
+ Download Python script
+
+Hints:
+1. Indentation is very meaningful in Python
+
+2. To view the file in the webshell, do: $ nano fixme1.py
+
+3. To exit nano, press Ctrl and x and follow the on-screen prompts.
+
+4. The str_xor function does not need to be reverse engineered for this challenge.
+
+
+### Code / Terminal Snippets
+1. wget https://challenge-files.cylabacademy.net/library/a7565be9118cb42cf66dd23265088dc898cf9a845849c2d4833d40b1714ada46/fixme1.py
+2. python3 fixme1.py
+3. nano fixme1.py
+4. python3 fixme1.py
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the script file using "wget".
+2. Run the python script file using "python3".
+3. There is a indentation error in the code.
+4. Open the script file using "nano" and correct the indentation for print statement and save it by pressing ctrl+o ,enter and ctrl+x.
+5. Now run the python script file and the flag will appear.
+
+
+---
+
+## 🏁 Flag
+academy{1nd3nt1ty_cr1515_11a3eda1}
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+python script reading, indentation and execution
+* What commands or tools did you use?
+1. wget
+2. nano
+3. python3
+

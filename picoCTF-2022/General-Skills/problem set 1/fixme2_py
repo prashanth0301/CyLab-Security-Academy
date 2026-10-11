@@ -1,0 +1,52 @@
+---
+tags: [picoCTF2022, General-Skills,Easy ]
+challenge_name: fixme2.py
+solved_date: 2026-10-11
+---
+
+# 🚩 Challenge: [Challenge Name]
+![fixme2_description](../fixme2.png)
+## 📝 Challenge Description
+Fix the syntax error in the Python script to print the flag. Download Python script
+
+Hints:
+1. Are equality and assignment the same symbol?
+
+2. To view the file in the webshell, do: $ nano fixme2.py
+
+3. To exit nano, press Ctrl and x and follow the on-screen prompts.
+
+4. The str_xor function does not need to be reverse engineered for this challenge.
+
+
+### Code / Terminal Snippets
+1. wget https://challenge-files.cylabacademy.net/library/3fa27ba0c75e4f407f4fd5dc691a5ddfd738d83607729741fee30aac20ca113f/fixme2.py
+2. python3 fixme.py
+3. nano fixme2.py
+4. python3 fixme.py
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the script file using "wget".
+2. Run the script file using 'python'.
+3. There is an equality error missing in script.
+4. Go to script using "nano" and add the equality operator and save it by pressing ctrl+o ,enter and ctrl+x.
+5. Now again run the script file using python,the flag will appear.
+
+
+---
+
+## 🏁 Flag
+academy{3qu4l1ty_n0t_4551gnm3nt_341eebbc}
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+    Checking the operator equality in the script
+* What commands or tools did you use?
+1. nano
+2. python3
+3. wget
+
+---

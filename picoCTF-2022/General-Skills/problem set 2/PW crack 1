@@ -1,0 +1,51 @@
+---
+tags: [picoCTF2022, General-Skills, Easy]
+challenge_name: PW Crack 1
+solved_date: 2026-10-11
+---
+
+# 🚩 Challenge: [PW Crack 1]
+![pw1_description](../pw_crack1.png)
+## 📝 Challenge Description
+Can you crack the password to get the flag? Download the password checker here
+ and you'll need the encrypted flag
+ in the same directory too.
+
+Hints:
+1. To view the file in the webshell, do: $ nano level1.py
+
+2. To exit nano, press Ctrl and x and follow the on-screen prompts.
+
+3. The str_xor function does not need to be reverse engineered for this challenge.
+
+### Code / Terminal Snippets
+1. wget https://challenge-files.cylabacademy.net/library/b3e85410c57956866b9dffa5c2abe8be9060cec09f76df39d3302aeee3d98953/level1.py
+2. wget https://challenge-files.cylabacademy.net/library/b3e85410c57956866b9dffa5c2abe8be9060cec09f76df39d3302aeee3d98953/level1.flag.txt.enc
+3. python3 level1.py
+4. nano level1.py
+5. python3 level1.py
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the both files "flag" and "here" using "wget".
+2. Run the python file "level1.py",it asks a password.
+3. Open the file level1.py using nano and see the password.
+4. Again run the python "level1.py" and enter password here.
+5. The flag will appear here.
+
+
+---
+
+## 🏁 Flag
+academy{545h_r1ng1ng_4a96bf39}
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+Finding the password from the file using nano
+* What commands or tools did you use for the first time?
+1. wget
+2. python
+3. nano
+---
