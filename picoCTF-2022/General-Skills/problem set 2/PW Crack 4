@@ -1,0 +1,57 @@
+---
+tags: [picoCTF2022, General-Skills, Medium]
+challenge_name: PW Crack 4
+solved_date: 2026-10-12
+---
+
+# 🚩 Challenge: [PW Crack 4]
+![pw4_description](../pw_crack4.png)
+## 📝 Challenge Description
+
+Can you crack the password to get the flag? Download the password checker here
+ and you'll need the encrypted flag
+ and the hash
+ in the same directory too.
+
+There are 100 potential passwords with only 1 being correct. You can find these by examining the password checker script.
+
+Hints:
+1. A for loop can help you do many things very quickly.
+
+2. The str_xor function does not need to be reverse engineered for this challenge.
+
+
+### Code / Terminal Snippets
+1. wget https://challenge-files.cylabacademy.net/library/b1fecac0629eeb07add3a4371c6449060a0abbbbd461b98cd2b383f66d32fbb0/level4.py
+2. wget https://challenge-files.cylabacademy.net/library/b1fecac0629eeb07add3a4371c6449060a0abbbbd461b98cd2b383f66d32fbb0/level4.flag.txt.enc
+3. wget https://challenge-files.cylabacademy.net/library/b1fecac0629eeb07add3a4371c6449060a0abbbbd461b98cd2b383f66d32fbb0/level4.hash.bin
+4. nano level4.py
+5. python level4.py
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the 3 files related to the challenge "here","flag"and"hash" using wget  or manual download.
+2. Open the level4 file using "nano".
+3. Change the "pos_pw_list" variable to global scope or place it above the level_4_pw_check function.
+4. Add a comment to the user input line in the same function and add for loop below comment line and arrange below code in indentation except "incorrect password".
+5. Save it with ctrl+o,enter and ctrl+x.
+6. Again run the level4.py and it will generate the flag automatically. 
+
+
+
+---
+
+## 🏁 Flag
+academy{fl45h_5pr1ng1ng_81dd449f}
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+I learnt how to automate the password checking using for loop and global scope.
+* What commands or tools did you use?
+1. hashblib
+2. wget 
+3. nano
+4. python
+---

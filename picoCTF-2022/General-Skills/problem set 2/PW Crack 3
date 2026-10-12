@@ -1,0 +1,62 @@
+---
+tags: [picoCTF2022, General-Skills, Medium]
+challenge_name: PW Crack 3
+solved_date: 2026-10-12
+---
+
+# 🚩 Challenge: [PW Crack 3]
+![pw3_description](../pw_crack3.png)
+## 📝 Challenge Description
+Can you crack the password to get the flag? Download the password checker here
+ and you'll need the encrypted flag
+ and the hash
+ in the same directory too.
+
+There are 7 potential passwords with 1 being correct. You can find these by examining the password checker script.
+
+Hints:
+1. To view the level3.hash.bin file in the webshell, do: $ bvi level3.hash.bin
+
+2. To exit bvi type :q and press enter.
+
+3. The str_xor function does not need to be reverse engineered for this challenge.
+
+### Code / Terminal Snippets
+1. wget https://challenge-files.cylabacademy.net/library/ae8548417223f50bd8a748c28e60fc688e1426cc7be7b09142456c1427def2c3/level3.py
+2. wget https://challenge-files.cylabacademy.net/library/ae8548417223f50bd8a748c28e60fc688e1426cc7be7b09142456c1427def2c3/level3.flag.txt.enc
+3. wget https://challenge-files.cylabacademy.net/library/ae8548417223f50bd8a748c28e60fc688e1426cc7be7b09142456c1427def2c3/level3.hash.bin
+4. python level3.py
+5. bvi level3.hash.bin
+6. nano level3.py
+7. python level3.py
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the 3files "here","flag","hash" using "wget".
+2. Run the level3.py using "python" and it will ask password so press ctrl+c.
+3. Open the bin file with "bvi",flag file with "cat"and level3 file with "nano".
+4. Observe the code we will find 7 passwords we need to do bruteforce them only 1 password is correct.
+5. Run again the level3.py file and enter the passwords which we find in file.
+6. Flag will appear.
+
+
+
+
+---
+
+## 🏁 Flag
+academy{m45h_fl1ng1ng_f684152a}
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+I learnt how to look into file and how the passwords and encrypted and the brute force method.
+* What commands or tools did you use?
+1. wget
+2. nano
+3. cat
+4. bvi
+5. python
+6. hashlib
+---
