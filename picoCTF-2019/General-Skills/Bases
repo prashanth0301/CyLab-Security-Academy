@@ -1,0 +1,53 @@
+---
+tags: [picoCTF2019, General-Skills, Easy]
+challenge_name: Bases
+solved_date: 2026-10-13
+---
+
+# 🚩 Challenge: [Bases]
+![bases_description](bases.png)
+## 📝 Challenge Description
+
+What does this `bDNhcm5fdGgzX3IwcDM1` mean? I think it has something to do with bases.
+
+Hints
+1. Submit your answer in our flag format. For example, if your answer was 'hello', you would submit 'academy{hello}' as the flag.
+
+---
+
+
+### Code / Terminal Snippets
+```bash
+1. echo "bDNhcm5fdGgzX3IwcDM1" | base64 -d
+o/p: l3arn_th3_r0p35
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Copy the `base64`text  from description and paste it in either `cyberchef` with operation `from base64` drag it to the right.
+2. Paste the copied text from description in "cyberchef" and the flag will appear but we need to add `academy{}`.
+3. Another method is from command prompt which i have given command from `above step`.
+4. Same as step 2 add `academy{}` place flag inside it.
+
+
+---
+
+## 🏁 Flag
+```
+academy{l3arn_th3_r0p35}
+```
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+How to convert one form of encoded text to normal text.
+```
+* What commands or tools did you use?
+```
+1. CyberChef
+2. echo 
+3. |
+4. base64
+```
+

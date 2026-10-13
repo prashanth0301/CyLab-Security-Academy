@@ -1,0 +1,53 @@
+---
+tags: [picoCTF2021, Cryptography, Easy]
+challenge_name: Mod 26
+solved_date: 2026-10-13
+---
+
+# 🚩 Challenge: [Mod 26]
+![mod_26_descsription](mod_26.png)
+## 📝 Challenge Description
+
+Cryptography can be easy, do you know what ROT13 is? values.txt
+
+Hints:
+1. This can be solved online if you don't want to do it by hand!
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/808dc92cb1d656c448213b2248ac018559175543696ab769b0bc781fae55a81f/values.txt
+2. echo values.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `values.txt ` using `wget` or `browser`.
+2. Convert given text into normal text using `rot-13` or from echo command.
+3. After conversion the flag will appear.
+
+
+
+---
+
+## 🏁 Flag
+```text
+academy{next_time_I'll_try_2_rounds_of_rot13_5c5f5b36}
+
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to convert from encoded text to decoded text using `rot-13` and `echo` command
+```
+* What commands or tools did you use?
+```
+1. wget
+2. echo
+3. rot-13
+4. |
+5. tr
+```

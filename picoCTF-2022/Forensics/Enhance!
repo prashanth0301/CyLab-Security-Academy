@@ -1,0 +1,58 @@
+---
+tags: [picoCTF2022, Forensics, Easy]
+challenge_name: Enhance!
+solved_date: 2026-10-13
+---
+
+# 🚩 Challenge: [Enhance!]
+![enhance_qn](enhance.png)
+## 📝 Challenge Description
+Download this image file and find the flag.
+
+Download image file
+
+---
+
+### Code / Terminal Snippets
+```bash
+1.cat drawing.flag.svg|grep "</tspan>"
+o/p:
+         id="tspan3748">a </tspan><tspan
+         id="tspan3754">c </tspan><tspan
+         id="tspan3756">a </tspan><tspan
+         id="tspan3758">d </tspan><tspan
+         id="tspan3760">e </tspan><tspan
+         id="tspan3762">m </tspan><tspan
+         id="tspan3764">y { 3 n h 4 n </tspan><tspan
+         id="tspan3752">c 3 d _ 9 f 3 1 c 0 4 b }</tspan></text>
+```
+---
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the link from description of the challenge using `wget` or through `browser`.
+2. Open the downloaded image file through browser and `view page source`.
+3. At last in the code the flag is placed in <tspan> tag one by one.
+4. copy and paste them in challenge field.
+5. Another way is through from command line.
+6. cat drawing.flag.svg | grep “</tspan>”
+7. Flag will display.
+
+---
+
+## 🏁 Flag
+```
+academy{3nh4nc3d_9f31c04b}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how the flag has been hide in image file and separate <tspan> tags.
+```
+* What commands or tools did you use?
+```
+1. cat
+2. |
+3. grep
+4. browser view page source
+```

@@ -1,0 +1,59 @@
+---
+tags: [picoCTF2024, General-Skills, Easy]
+challenge_name: Super SSH
+solved_date: 2026-10-13
+---
+
+# 🚩 Challenge: [Super SSH]
+![super_ssh_description](super_ssh.png)
+
+## 📝 Challenge Description
+
+Using a Secure Shell (SSH) is going to be pretty important. Can you ssh as ctf-player to chatelaine.cylabacademy.net at port 40332 to get the flag?
+
+You'll also need the password fd7746b4. If asked, accept the fingerprint with yes.
+
+If your device doesn't have a shell, you can use: https://webshell.cylabacademy.org
+
+If you're not sure what a shell is, check out our Primer: https://primer.cylabacademy.org/#_the_shell
+
+Instance
+Expires in 6:09
+Hints
+1. https://linux.die.net/man/1/ssh
+
+2. You can try logging in 'as' someone with <user>@chatelaine.cylabacademy.net
+
+3. How could you specify the port?
+
+4. Remember, passwords are hidden when typed into the shell
+
+### Code / Terminal Snippets
+1. ssh ctf-player@chatelaine.cylabacademy.net -p 40332
+2. Enter password:fd7746b4
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Connect the `ssh` session to user `ctf-player` and host `chatelaine.cylabacademy.net` and port number "40332".
+2. For you port number may change.
+3. Enter  the `password` and  the flag displays.
+
+
+---
+
+## 🏁 Flag
+```
+academy{s3cur3_c0nn3ct10n_7a8547e8}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to connect to a remote connection using `ssh` protocol ,username and host address with port.
+```
+* What commands or tools did you use?
+```
+1. ssh
+```
+---

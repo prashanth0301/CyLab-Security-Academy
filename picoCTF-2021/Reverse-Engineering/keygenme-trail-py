@@ -1,0 +1,75 @@
+---
+tags: [picoCTF2021, Reverse-Engineering, Medium]
+challenge_name: keygenme-trial.py
+solved_date: 2026-10-13
+---
+
+# 🚩 Challenge: [keygenme-trial.py]
+![keygenme_py](keygenme-py.png)
+## 📝 Challenge Description
+keygenme-trial.py
+
+### Code / Terminal Snippets
+```
+1. wget https://challenge-files.cylabacademy.net/library/2ae1afa675115ff8bf18b4d6edd0a7230c6231a75c3f5d33562372ee88be12cb/keygenme-trial.py
+2. nano keygenme-trial.py
+3. nano solver.py and paste below code.
+import hashlib
+
+key_part_static1_trial = "academy{1n_7h3_kk3y_of_"
+#key_part_dynamic1_trial = "xxxxxxxx"
+key_part_static2_trial = "}"
+
+temp=hashlib.sha256(b"MILLER").hexdigest()
+key_part_dynamic1_trial = temp[4]+temp[5]+temp[3]+temp[6]+temp[2]+temp[7]+temp[1]+temp[8]
+
+key_full_template_trial = key_part_static1_trial + key_part_dynamic1_trial + key_part_static2_trial
+print(key_full_template_trial)
+4. python solver.py
+```
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `keygenme-trail.py` using `wget`.
+2. Open and read the  keygenme-trial.py file using `nano`.
+3. Write a script using `below automation script` in `solver.py` using `nano`.
+4. Run the solver.py using `python`.
+5. Flag will display paste it in challenge field.
+
+### Automation Script 
+```python
+import hashlib
+
+key_part_static1_trial = "academy{1n_7h3_kk3y_of_"
+#key_part_dynamic1_trial = "xxxxxxxx"
+key_part_static2_trial = "}"
+
+temp=hashlib.sha256(b"MILLER").hexdigest()
+key_part_dynamic1_trial = temp[4]+temp[5]+temp[3]+temp[6]+temp[2]+temp[7]+temp[1]+temp[8]
+
+key_full_template_trial = key_part_static1_trial + key_part_dynamic1_trial + key_part_static2_trial
+print(key_full_template_trial)
+```
+
+
+---
+
+## 🏁 Flag
+```
+academy{1n_7h3_kk3y_of_9edf443b}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to find the part of the flag for finding  dynamic_flag_trail with `sha256` and `hashlib` and write a separate python file to find flag.
+```
+* What commands or tools did you use for the first time?
+```
+1. hashlib
+2. wget
+3. nano
+4. python
+5. sha256
+```
