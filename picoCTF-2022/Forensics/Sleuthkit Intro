@@ -1,0 +1,61 @@
+---
+tags: [picoCTF2022, Forensics, Medium]
+challenge_name: Sleuthkit Intro
+solved_date: 2026-10-14
+---
+
+# 🚩 Challenge: [Sleuthkit Intro]
+![sleuthkit_intro_qn](sleuthkit_intro.png)
+## 📝 Challenge Description
+Download the disk image and use mmls on it to find the size of the Linux partition. Connect to the remote checker service to check your answer and get the flag.
+
+Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.
+
+Download disk image
+ Access checker program: nc chatelaine.cylabacademy.net 14158
+
+
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/d8718cbbc14dcd9f9aad532a51d7a01b00e1715ca3b1d654dfef687d0b15cbf5/disk.img.gz
+2. gunzip disk.img.gz
+3. file disk.img
+4. apt install sleuthkit
+5. mmls disk.img(note the size of the disk image.)
+6. nc chatelaine.cylabacademy.net 14158
+7. Enter `size of the disk image` to get the flag.
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `disk.img.gz` file from challenge and extract it using `gunzip`.
+2. Check the file using `file`.
+3. Download `sleuthkit` if not installed before.
+4. Check the `mmls disk.img` and the size of the disk will be displayed.
+5. Connect the  `nc chatelaine.cylabacademy.net 14158` and enter the size of the disk image from `step4` and the flag will display.
+
+
+---
+
+## 🏁 Flag
+```
+academy{mm15_f7w!}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```text
+I learnt what is sleuthkit , mmls and the length in sectors will be found from the mmls.
+```
+* What commands or tools did you use?
+```text
+1. wget
+2. file
+3. apt install sleuthkit
+4. mmls
+
+```
+---
