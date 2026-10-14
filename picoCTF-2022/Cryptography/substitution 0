@@ -1,0 +1,58 @@
+---
+tags: [picoCTF2022, Cryptograpghy, Medium]
+challenge_name: Substitution0
+solved_date: 2026-10-14
+---
+
+# 🚩 Challenge: [Substitution0]
+![substitution0](substitution0.png)
+## 📝 Challenge Description
+A message has come in but it seems to be all scrambled. Luckily it seems to have the key at the beginning. Can you crack this substitution cipher? Download the message here
+.
+
+Hints
+1. Try a frequency attack. An online tool might help.
+
+---
+
+
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/c81cd186dacb4ad82560df3b81fe365fc1c38a1c7dca9a73a9604c5345ab4473/message.txt
+2. echo "dhdmivz{5CJ5717C710G_3P0YC710G_6D8H4822}" | tr "DJHMILABFORYVGNKUXQSCPEWZTdjhmilabforyvgnkuxqscpewzt" "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `message.txt` from challenge usng "wget".
+2. Open the file with `cat` and observe the text.
+3. There is a cipher text at start of the message and flag with cipher encoded at last.
+4. Use `cyberchef(substitution)` for decoding paste cipher text in above field and normal text like `A-Z` alphabets in cipher text area and `ignore case (checkbox) as ticked` and paste `cipher encoded flag at top-right side` and clcik enter.
+5. Another method is using from terminal using `echo and tr `commands.
+6. The flag will appear.
+
+---
+
+## 🏁 Flag
+```text
+academy{5UB5717U710N_3V0LU710N_6A8C4822}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```text
+I learnt how to find the flag by converting the encoded text into normal using substitution cipher.
+```
+* What commands or tools did you use?
+```text
+1. echo
+2. |
+3. tr
+4. cyberchef(substitution)
+5. wget
+6. planetcal.com
+```
+---

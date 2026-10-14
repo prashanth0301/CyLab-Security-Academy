@@ -1,0 +1,48 @@
+---
+tags: [picoCTF2022, Cryptograpghy, Medium]
+challenge_name: Substitution2
+solved_date: 2026-10-14
+---
+
+# 🚩 Challenge: [Substitution2]
+![substitution2](substitution2.png)
+## 📝 Challenge Description
+It seems that another encrypted message has been intercepted. The encryptor seems to have learned their lesson though and now there isn't any punctuation! Can you still crack the cipher? Download the message here
+.
+
+Hints
+1. Try refining your frequency attack, maybe analyzing groups of letters would improve your results?
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the file of `message.txt` from challenge suing `wget`or maual download.
+2. See the content in it using `cat command ` or `manually` opening.
+3. Find the similar words in the flag and frequency and by mpaping it with other ones in the flag.
+4. Another easy method is to paste the scrambled text into online decoder of substitution cippher like `planetcalc.com`.
+5. You will get the flag by any of the above methods.
+
+
+
+---
+
+## 🏁 Flag
+```text
+ACADEMY{N6R4M_4N41Y515_15_73D10U5_FD56C357}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```text
+I learnt mapping of alphabets with different alphabets which look like the word is nearly possible this one from that guess the flag based on the encoded flag with those we can find the actual flag for this challenge.
+```
+
+* What commands or tools did you use?
+```
+1. planetcalc.com
+2. substitution cipher
+3. wget
+4. cat 
+```
+---

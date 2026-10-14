@@ -1,0 +1,69 @@
+---
+tags: [picoCTF2022, Cryptograpghy, Medium]
+challenge_name: Substitution1
+solved_date: 2026-10-14
+---
+
+# 🚩 Challenge: [Substitution1]
+![substitution1](substitution1.png)
+## 📝 Challenge Description
+A second message has come in the mail, and it seems almost identical to the first one. Maybe the same thing will work again. Download the message here
+.
+
+Hints:
+1. Try a frequency attack
+
+2. Do the punctuation and the individual words help you make any substitutions?
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+
+1. Analysis & Identification
+
+• The challenge text retains standard English word spacing, sentence structure, and punctuation, indicating a Monoalphabetic Substitution Cipher.
+• The flag trailing at the end follows a standard format: lrlxpac{...}.
+
+2. Finding the Cribs (Known Plaintext)
+
+• The Introduction: The phrase RZFt (tquvz fuv rlwzbvp zqp felg) maps structurally to the standard security acronym definition: CTFs (short for capture the flag).
+	• This yields the baseline mappings: R → C, Z → T, F → F, t → s, l → a, v → r, p → e.
+• The Flag Format: The prefix lrlxpac has identical characters at positions 1, 3, and 7 (l). Matching this against the target word academy confirms the mapping rule where ciphertext l/L translates to plaintext a/A.
+
+3. Decoding the Flag Segment
+
+Applying the discovered character mapping rules to the ciphertext string inside the brackets (FV3DB3ORC_4774RM5_4V3_R001_0532L335) resolves the leetspeak text:
+• FV3DB3ORC → FR3QU3NCY
+• 4774RM5 → 4774CK5
+• 4V3 → 4R3
+• R001 → C001
+• 0532L335 → 0532A335 (Crucially, uppercase L translates to A)
+
+4. Flag 
+academy{FR3QU3NCY_4774CK5_4R3_C001_0532A335}
+
+5. For you the flag may vary at last.
+
+---
+
+## 🏁 Flag
+```text
+academy{FR3QU3NCY_4774CK5_4R3_C001_0532A335}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```text
+I learnt mapping of alphabets with different alphabets which look like the word is nearly possible this one from that guess the flag based on the encoded flag with those we can find the actual flag for this challenge.
+```
+
+* What commands or tools did you use?
+```
+1. cyberchef
+2. substitution
+3. wget
+4. cat 
+5. planetcalc.com
+```
+---
