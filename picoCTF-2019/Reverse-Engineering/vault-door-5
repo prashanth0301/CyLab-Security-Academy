@@ -1,0 +1,87 @@
+---
+tags: [picoCTF2019, Reverse-Engineering, Medium]
+challenge_name: vault-door-5
+solved_date: 2026-10-15
+---
+
+# 🚩 Challenge: [vault-door-5]
+![alt text](vault-door-5.png)
+## 📝 Challenge Description
+In the last challenge, you mastered octal (base 8), decimal (base 10), and hexadecimal (base 16) numbers, but this vault door uses a different change of base as well as URL encoding! The source code for this vault is here: VaultDoor5.java
+
+Hints:
+1. You may find an encoder/decoder tool helpful, such as https://encoding.tools/
+
+2. Read the wikipedia articles on URL encoding and base 64 encoding to understand how they work and what the results look like.
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/e0c427718db4f670d4a09df9a1ce5c4d2ff6dec848cbbda005a892acccaa4097/VaultDoor5.java
+2. nano VaultDoor5.java
+3. nano decodeurlb64.py
+
+import base64
+from urllib.parse import unquote
+
+expected = (
+    "JTYzJTMwJTZlJTc2JTMzJTcyJTc0JTMxJTZlJTY3JTVm"
+    "JTY2JTcyJTMwJTZkJTVmJTYyJTYxJTM1JTY1JTVmJTM2"
+    "JTM0JTVmJTY1JTMzJTM0JTMwJTYzJTMzJTY1JTY0"
+)
+
+# First layer: Base64 decoding
+decoded = base64.b64decode(expected).decode()
+
+# Second layer: URL decoding
+password = unquote(decoded)
+
+print("Decoded password:", password)
+
+4. python decodeurlb64.py
+
+
+    
+```
+
+### 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `valutdoor5.java` using `wget`.
+2. Open the file using `nano` or any text editor.
+3. Observe the code in `valutdoor5.java` and see the functions in 
+4. Write a python program with `frombase64 and url decoding`. 
+5. Flag will be appear after running the `decodeurlb64.py` file using `python`.
+
+`OR`
+1. Open CyberChef.
+2. Copy the complete value of expected by joining the three strings together, without the quotation marks or + signs.
+3. Paste it into the Input box.
+4. Add these operations to the Recipe, in this exact order:
+   - From Base64
+   - URL Decode
+The output should reveal the password.
+
+`OR`
+![alt text](vault-door-encoding_tools.png)
+---
+
+## 🏁 Flag
+```text
+academy{c0nv3rt1ng_fr0m_ba5e_64_e340c3ed}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how the flag is `encoded using base64 and urlencode` and decoding them using a python script,cyberchef and encoding.tools.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. nano
+3. python
+4. cyberchef(urldecode,frombase64)
+5. encoding.tools
+
+```
+---

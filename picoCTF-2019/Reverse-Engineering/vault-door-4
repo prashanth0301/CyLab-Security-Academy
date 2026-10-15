@@ -1,0 +1,74 @@
+---
+tags: [picoCTF2019, Reverse-Engineering, Medium]
+challenge_name: vault-door-4
+solved_date: 2026-10-15
+---
+
+# 🚩 Challenge: [vault-door-4]
+![alt text](vault-door-4.png)
+## 📝 Challenge Description
+This vault uses ASCII encoding for the password. The source code for this vault is here: VaultDoor4.java
+
+Hints:
+1. Use a search engine to find an "ASCII table"
+
+2. You will also need to know the difference between octal, decimal, and hexadecimal numbers.
+
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/6f9f73cad1f487b96f883f6461ef83ce482da6468064c7ed3833cd67e0525385/VaultDoor4.java
+2. nano VaultDoor4.java
+3. nano bytesdecode.py
+# Recreate the array exactly as provided in the Java source code.
+# Python automatically interprets standard integer bases (decimal, hex, octal, and string characters)
+my_bytes = [
+    106, 85, 53, 116, 95, 52, 95, 98,              # Decimal
+    0x55, 0x6e, 0x43, 0x68, 0x5f, 0x30, 0x66, 0x5f,  # Hexadecimal
+    0o142, 0o131, 0o164, 0o63, 0o163, 0o137, 0o70, 0o66, # Octal (prefixed with 0o in Python)
+    ord('c'), ord('8'), ord('4'), ord('3'), ord('f'), ord('d'), ord('1'), ord('0') # Characters converted to byte ints
+]
+
+# Use a list comprehension to convert every byte to its ASCII character representation
+password_chars = [chr(b) for b in my_bytes]
+
+# Combine the individual characters into the final string
+recovered_password = "".join(password_chars)
+
+print(f"Recovered Password: {recovered_password}")
+
+4. python bytesdecode.py
+
+
+    
+```
+
+### 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `valutdoor4.java` using `wget`.
+2. Open the file using `nano` or any text editor.
+3. Observe the code in `boolean function` there is a flag with containing in `ASCII,Decimals,Hexa Decimals,Octa Decimals`.
+4. Write a python program with the `boolean function data ` to find the original flag based on `ASCII,Decimals,Hexa Decimals,Octa Decimals`.
+5. Flag will be appear after running the `bytesdecode.py` file using `python`.
+
+---
+
+## 🏁 Flag
+```text
+academy{jU5t_4_bUnCh_0f_byt3s_86c843fd10}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how the flag characters  are placed in using different formats like ASCII,Decimals,Hexa Decimals,OctaDecimals and decoding them using a python script.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. nano
+3. python
+
+```
+---

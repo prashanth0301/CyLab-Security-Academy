@@ -1,0 +1,96 @@
+---
+tags: [picoCTF2019, Reverse-Engineering, Hard]
+challenge_name: vault-door-8
+solved_date: 2026-10-15
+---
+
+# 🚩 Challenge: [vault-door-8]
+![alt text](vault-door-8.png)
+## 📝 Challenge Description
+Apparently Dr. Evil's minions knew that our agency was making copies of their source code, because they intentionally sabotaged this source code in order to make it harder for our agents to analyze and crack into! The result is a quite mess, but I trust that my best special agent will find a way to solve it. The source code for this vault is here: VaultDoor8.java
+
+Hints
+1. Clean up the source code so that you can read it and understand what is going on.
+
+2. Draw a diagram to illustrate which bits are being switched in the scramble() method, then figure out a sequence of bit switches to undo it. You should be able to reuse the switchBits() method as is.
+
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/0b7c9ff3145fd1a47f09ac08c11072dd1d23d2684d24df1388d720ff47e738a2/VaultDoor8.java
+2. nano VaultDoor8.java
+3. nano scrambledecode.py
+
+# Expected scrambled characters from VaultDoor8.java
+expected = [
+    0xF4, 0xC0, 0x97, 0xF0, 0x77, 0x97, 0xC0, 0xE4,
+    0xF0, 0x77, 0xA4, 0xD0, 0xC5, 0x77, 0xF4, 0x86,
+    0xD0, 0xA5, 0x45, 0x96, 0x27, 0xB5, 0x77, 0xD0,
+    0xC1, 0xB4, 0xC0, 0xA5, 0xE0, 0xA5, 0xD0, 0xD0
+]
+
+# Swaps used by the Java scramble() function
+swaps = [
+    (1, 2), (0, 3), (5, 6), (4, 7),
+    (0, 1), (3, 4), (2, 5), (6, 7)
+]
+
+def switch_bits(c, p1, p2):
+    bit1 = (c >> p1) & 1
+    bit2 = (c >> p2) & 1
+
+    if bit1 != bit2:
+        c ^= (1 << p1 ) | (1 << p2)
+
+    return c
+password = ""
+
+for c in expected:
+    # Reverse the swaps
+    for p1, p2 in reversed(swaps):
+        c = switch_bits(c, p1, p2)
+
+    password += chr(c)
+
+print("Password:", password)
+
+4. python scrambledecode.py
+    
+```
+
+### 🚀 Exploitation / Solution Path
+# VaultDoor8 – Step-by-Step Guide to Get the Flag
+
+1. Download `VaultDoor8.java` using the `wget` command.
+
+2. Open the file using `nano` or any text editor.
+
+3. Observe the `scramble()`, `switchBits()` and `checkPassword()` functions to understand how the password is scrambled using bit swapping and compared with the expected hexadecimal values.
+
+4. Write a Python program named `scrambledecode.py` that stores the expected hexadecimal values and reverses the eight bit swaps in reverse order to recover the original password.
+
+5. Run the Python program using python
+   ```
+6. Copy the recovered password and enter it into the vault challenge. If the password is correct, the program will grant access and the challenge can reveal the flag.
+
+---
+
+## 🏁 Flag
+```text
+academy{s0m3_m0r3_b1t_sh1fTiNg_14c0f2f11}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how the flag will come after writing a script which goes from 
+"main() → checkPassword() → scramble() → switchBits() → scramble() → checkPassword() → main()".
+```
+* What commands or tools did you use?
+```
+1. wget
+2. nano
+3. python
+```
+---

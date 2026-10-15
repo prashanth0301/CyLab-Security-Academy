@@ -1,0 +1,71 @@
+---
+tags: [picoCTF2019, Reverse-Engineering, Medium]
+challenge_name: vault-door-6
+solved_date: 2026-10-15
+---
+
+# 🚩 Challenge: [vault-door-6]
+![alt text](vault-door-6.png)
+## 📝 Challenge Description
+This vault uses an XOR encryption scheme. The source code for this vault is here: VaultDoor6.java
+
+Hints
+1. If X ^ Y = Z, then Z ^ Y = X. Write a program that decrypts the flag based on this fact.
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/1aeb070229259c18f9b2c9f1d0982f8dab37c7547526f8d55288a5a8bb856e2d/VaultDoor6.java
+2. nano VaultDoor6.java
+3. nano xordecode.py
+# 1. Define the hardcoded byte array from the Java code
+my_bytes = [
+    0x3b, 0x65, 0x21, 0x0a, 0x38, 0x00, 0x36, 0x1d, 
+    0x0a, 0x3d, 0x61, 0x27, 0x11, 0x66, 0x27, 0x0a, 
+    0x21, 0x1d, 0x61, 0x3b, 0x0a, 0x2d, 0x65, 0x27, 
+    0x0a, 0x65, 0x36, 0x37, 0x62, 0x65, 0x60, 0x30
+]
+
+# 2. Reverse the logic: (my_bytes ^ 0x55) for each element
+password_chars = [chr(b ^ 0x55) for b in my_bytes]
+
+# 3. Join the characters into a final string
+password = "".join(password_chars)
+
+print(f"The correct password is: {password}")
+
+
+4. python xordecode.py
+
+
+    
+```
+
+### 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `valutdoor6.java` using `wget`.
+2. Open the file using `nano` or any text editor.
+3. Observe the code in `boolean checkpassword` there is a flag with containing in hexadecimal values and after performing xor with `0x55`.
+4. Write a python program with the `xor operation for my_bytes ` to find the original flag based on XOR`.
+5. Flag will be appear after running the `xordecode.py` file using `python`.
+
+---
+
+## 🏁 Flag
+```text
+academy{n0t_mUcH_h4rD3r_tH4n_x0r_0cb705e}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how the flag will come after performing  hexadecimals with XOR .
+```
+* What commands or tools did you use?
+```
+1. wget
+2. nano
+3. python
+
+```
+---

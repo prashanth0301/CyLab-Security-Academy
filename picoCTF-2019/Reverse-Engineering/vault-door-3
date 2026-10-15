@@ -1,0 +1,83 @@
+---
+tags: [picoCTF2019, Reverse-Engineering, Medium]
+challenge_name: vault-door-3
+solved_date: 2026-10-15
+---
+
+# 🚩 Challenge: [vault-door-3]
+![alt text](vault-door-3.png)
+## 📝 Challenge Description
+This vault uses for-loops and byte arrays. The source code for this vault is here: VaultDoor3.java
+
+Hints
+1. Make a table that contains each value of the loop variables and the corresponding buffer index that it writes to.
+
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/2142576c74296209b8a72720ae1c3c1a408fb11d9c2dc07ee8613febf6252834/VaultDoor3.java
+2. nano VaultDoor3.java
+3. nano decrypt.py
+def decrypt(scrambled_str):
+    # Initialize a blank list of 32 characters
+    password = [''] * 32
+    
+    # Loop 1: Direct copy for indices 0 to 7
+    for i in range(8):
+        password[i] = scrambled_str[i]
+        
+    # Loop 2: Reverse mapping for indices 8 to 15
+    for i in range(8, 16):
+        password[23 - i] = scrambled_str[i]
+        
+    # Loop 3: Step-by-two mapping for even indices 16 to 30
+    for i in range(16, 32, 2):
+        password[46 - i] = scrambled_str[i]
+        
+    # Loop 4: Step-by-two mapping for odd indices 17 to 31
+    for i in range(31, 16, -2):
+        password[i] = scrambled_str[i]
+        
+    return "".join(password)
+
+# The scrambled string inside the flag wrapper
+scrambled_text = "jU5t_a_sna_3lpm16g84d_u_4_m7rc42"
+unscrambled_text = decrypt(scrambled_text)
+
+print(f"academy{{{unscrambled_text}}}")
+
+4. python decrypt.py
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `valutdoor3.java` using `wget`.
+2. Open the file using `nano` or any text editor.
+3. Observe the code in `boolean function` there is a flag with loop containing reverse of the flag which they given at last == original flag after performing above loops trick.
+4. Write a python program with the `boolean function data ` to find the original flag based on above for loops.
+5. Flag will be appear after running the decrypt file using `python`.
+
+---
+
+## 🏁 Flag
+```text
+academy{jU5t_a_s1mpl3_an4gr4m_4_u_d78c62}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how the flag characters  are placed in using for loops that reverses the scrambled flag given in code.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. nano
+3. python
+
+```
+---

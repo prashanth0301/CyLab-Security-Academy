@@ -1,0 +1,49 @@
+---
+tags: [picoCTF2019, Reverse-Engineering, Medium]
+challenge_name: vault-door-1
+solved_date: 2026-10-15
+---
+
+# 🚩 Challenge: [vault-door-1]
+![alt text](vault-door-1.png)
+## 📝 Challenge Description
+This vault uses some complicated arrays! I hope you can make sense of it, special agent. The source code for this vault is here: VaultDoor1.java
+
+Hints
+1. Look up the charAt() method online.
+
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/dd0ae9b406943de9f8bee5c8f5b509e72ad86fc3855bbe2f4f83228d6309a25c/VaultDoor1.java
+2. nano VaultDoor1.java
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `valutdoor1.java` using `wget`.
+2. Open the file using `nano` or any text editor.
+3. Observe the code in `boolean function` there is a flag with specifying using charAt() built in method with 32 characters and arrange them in order wise like `0-31`.
+4. Paste the characters with `academy{}` in the challenge field.
+
+---
+
+## 🏁 Flag
+```text
+academy{d35cr4mbl3_tH3_cH4r4cT3r5_179fbd}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how the flag characters  are placed in function with charAt function and placed in inorder.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. nano
+```
+---
