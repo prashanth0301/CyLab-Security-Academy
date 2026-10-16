@@ -1,0 +1,55 @@
+---
+tags: [picoCTF2019, Cryptography, Medium]
+challenge_name: caesar
+solved_date: 2026-10-16
+---
+
+# 🚩 Challenge: [caesar]
+![alt text](caesar.png)
+## 📝 Challenge Description
+
+Decrypt this message. Message: message
+
+Hints:
+1. Caesar cipher tutorial
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/8912e48bb8622982a9f742b251bd274b3db14e5ed4cce87c563f2def08fc291d/data.enc
+2. echo "zolppfkdqeboryfzlkhpuuhrnq" | tr 'a-z' 'd-za-c'
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `data.enc` file using `wget`.
+2. See the content using `cat`.
+3. Convert the encoded data into normal data by  using `cyberchef` or `rot 13 decoder` or `https://www.dcode.fr/caesar-cipher` by shifting 3characters forward.
+4. Another method is using `echo` command with `tr 'a-z' 'd-za-c'`.
+5. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{crossingtherubiconksxxkuqt}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to perform caesar cipher and what tools are required to do that.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. cat
+3. echo
+4. |
+5. tr
+6. cyberchef(rot13)
+7. https://www.dcode.fr/caesar-cipher
+```
+---

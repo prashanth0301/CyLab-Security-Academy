@@ -1,0 +1,78 @@
+---
+tags: [picoCTF2021, Cryptography, Medium]
+challenge_name: New Caesar
+solved_date: 2026-10-16
+---
+
+# 🚩 Challenge: [New Caesar]
+![alt text](new_caesar.png)
+## 📝 Challenge Description
+
+We found a brand new type of encryption, can you break the secret code? (Wrap with academy{}) cbdabldadbplblcnpfpnpapapecpcn new_caesar.py
+
+Hints
+1. How does the cipher work if the alphabet isn't 26 letters?
+
+2. Even though the letters are split up, the same paradigms still apply
+
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/4cf4ea26cde66bb3ef842ce6888992b798f8832b7644ca1b526a4cc86db4e42f/new_caesar.py
+2. nano new_caesar.py
+3. nano new_caesar_script.py
+import string
+
+ALPHABET = string.ascii_lowercase[:16]
+ciphertext = "cbdabldadbplblcnpfpnpapapecpcn"
+
+for key in ALPHABET:
+    # Reverse the shift
+    decoded = ""
+    for c in ciphertext:
+        index = (ord(c) - ord('a') - (ord(key) - ord('a'))) %>
+        decoded += ALPHABET[index]
+
+    # Decode pairs of 4-bit values into bytes
+    try:
+        raw = bytes(
+            (ALPHABET.index(decoded[i]) << 4)
+            | ALPHABET.index(decoded[i + 1])
+            for i in range(0, len(decoded), 2)
+        )
+        print(f"Key {key}: {raw.decode('utf-8')}")
+    except (UnicodeDecodeError, ValueError):
+        pass
+
+4. python new_caesar_script.py
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `new_caesar` file using `wget`.
+2. See the content using `nano`.
+3. Write a python script to find a flag `step3 in code/termianl snippets` and run using `python`.
+4. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{et_tu?_a91448ca}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt the how the flag is encoded  with only 16 alphabets are used performing shifts and utf-8 encoding.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. nano
+3. python
+```
+---

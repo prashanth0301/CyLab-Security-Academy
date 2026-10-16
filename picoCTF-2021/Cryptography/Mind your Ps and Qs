@@ -1,0 +1,90 @@
+---
+tags: [picoCTF2021, Cryptography, Medium]
+challenge_name: Mind your Ps and Qs
+
+solved_date: 2026-10-16
+---
+
+# 🚩 Challenge: [Mind your Ps and Qs]
+![alt text](mind_p_q.png)
+## 📝 Challenge Description
+In RSA, a small 
+e
+e value can be problematic, but what about 
+N
+N? Can you decrypt this? values
+
+Hints
+1. Bits are expensive, I used only a little bit over 100 to save money
+
+
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/6195bbe5645e383e13ba14724021967d4dacce9f6077e41b5e663ccb23dbb861/values
+2. cat values
+3. nano valuesscript.py
+
+from Crypto.Util.number import inverse, long_to_bytes
+
+c = 717608817902276639011922897702552744324264244069272484013719744328086856277690292
+n = 1368992139315019955067447961537607041364451719382349005056752379702694554965203011
+e = 65537
+
+p = 659880377875535146491994798968813949893149
+q = 2074606527507983503944226222695401999839
+
+# Verify RSA parameters
+assert p * q == n
+assert c < n
+
+# Calculate private key
+phi = (p - 1) * (q - 1)
+d = inverse(e, phi)
+
+# Decrypt ciphertext
+m = pow(c, d, n)
+raw = long_to_bytes(m)
+
+print("Decrypted bytes:", raw)
+print("Original output:", raw.decode("utf-8", errors="replace"))
+
+# The plaintext is stored in reverse byte order
+flag = raw[::-1].decode("utf-8")
+
+print("Correct flag:", flag)
+
+4. python valuesscript.py
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `values` file using `wget`.
+2. See the content using `cat`.
+3. Write a python script to find a flag `step3 in code/termianl snippets` and run using `python`.
+4. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{sma11_N_n0_g0od_a3ac7152}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to decrypt the flag using RSA algorithm with various values like c,e,n,phi,p,q,d,m.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. cat
+3. python
+4. crypto.util.number
+5. RSA values
+```
+---

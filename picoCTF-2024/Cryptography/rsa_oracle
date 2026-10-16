@@ -1,0 +1,107 @@
+---
+tags: [picoCTF2024, Cryptography, Medium]
+challenge_name: rsa_oracle
+
+solved_date: 2026-10-16
+---
+
+# 🚩 Challenge: [rsa_oracle]
+![alt text](rsa_oracle.png)
+## 📝 Challenge Description
+Can you abuse the oracle?
+
+An attacker was able to intercept communications between a bank and a fintech company. They managed to get the message
+ (ciphertext) and the password
+ that was used to encrypt the message. After some intensive reconassainance they found out that the bank has an oracle that was used to encrypt the password and can be found here nc xebec.cylabacademy.net 13151. Decrypt the password and use it to decrypt the message. The oracle can decrypt anything except the password.
+
+Instance
+Expires in 11:59
+Hints
+1. Crytography Threat models: chosen plaintext attack.
+
+2. OpenSSL can be used to decrypt the message. e.g openssl enc -aes-256-cbc -d ...
+
+3. The key to getting the flag is by sending a custom message to the server by taking advantage of the RSA encryption algorithm.
+
+4. Minimum requirements for a useful cryptosystem is CPA security.
+
+
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/c160444b2e2c0d9b093294670f0feec4d0e65abfcfc56e9524fb337c65cb9110/secret.enc
+2. wget  https://challenge-files.cylabacademy.net/library/c160444b2e2c0d9b093294670f0feec4d0e65abfcfc56e9524fb337c65cb9110/password.enc
+3. nano rsa_oracle.py
+
+from pwn import *
+from subprocess import run, PIPE
+p = remote("xebec.cylabacademy.net",13151)
+with open('password.enc') as f:
+  global password
+  password = f.read()
+
+#Get Banner plus options menu
+print(p.recvuntil(b'decrypt.').decode())
+p.sendline('E'.encode()) #Give the 'Encode' option
+p.recvuntil(b':').decode() #Gets until "Enter text to encrypt:"
+ourValue = 'a'
+p.sendline(ourValue.encode()) #Sends ourValue ('a') to be encoded
+data = p.recvuntil(b'decrypt.').decode() #Gets all program output until "…D → decrypt."
+data = int(data.split(' ')[12][:-6]) #Gets Enc('a') with string splicing
+log.info(f'data = {data}')
+toDecrypt = int(password)*data
+log.info(toDecrypt)
+
+#Decrypts toDecrypt
+p.sendline('D'.encode()) #Sends 'Decode' option
+p.recvuntil(b':').decode() #Gets "Enter text to encrypt:"
+p.sendline(str(toDecrypt).encode()) #Sends our payload
+res = p.recvuntil(b'decrypt.').decode() #Gets all program output until "…D → decrypt."
+res = res.split(' ')[10].split('\n')[0]
+secret = int(res,16) // ord(bytes('a','utf-8'))
+log.success(f'secret = {secret}')
+secret = secret.to_bytes(len(str(secret)), "big").decode("utf-8").lstrip("\x00")
+log.success(f'secret = {secret}')
+p.close()
+#Now we have our plaintext password, time to crack secret.enc!
+res = run(["openssl", "enc", "-aes-256-cbc", "-d", "-in", "secret.enc", "-pass",
+f"pass:{secret}"], stdout=PIPE, stderr=PIPE, text=True)
+print(res.stdout)
+print('exit')
+
+
+4. python rsa_oracle.py
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `secret.enc and password.enc` file using `wget`.
+2. See the content using `cat`.
+3. Write a python script to find a flag `step3 in code/termianl snippets` and run using `python`.
+4. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{su((3ss_(r@ck1ng_r3@_88a127f1}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to decrypt the flag using pwn and subprocess while "encoding  a character at first" and "decrypt the ouptut got" from "character encoding" with "openssl".
+```
+* What commands or tools did you use?
+```
+1. wget
+2. cat
+3. python
+4. pwn
+5. subprocess
+6. openssl
+```
+---

@@ -1,0 +1,63 @@
+---
+tags: [picoCTF2024, Cryptography, Easy]
+challenge_name: interencdec
+solved_date: 2026-10-16
+---
+
+# 🚩 Challenge: [caesar]
+![alt text](interencdec.png)
+## 📝 Challenge Description
+
+Can you get the real meaning from this file.
+
+Download the file here
+.
+
+Hints:
+1. Engaging in various decoding processes is of utmost importance
+
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/ff83d237e254069296a4d13eb3ff6a79b5a906b779d8ff391f6dd9ceecad43ae/enc_flag
+2. echo 'YidhR3BvYTJ4MFpudHFhR3g2YUhsZmF6TnFlVGwzWVROclh6Z3lNalF6TURrM2ZRPT0nCg==' \
+| base64 -d | sed "s/^b'//; s/'$//" | base64 -d
+3. echo 'hjhkltf{jhlzhy_k3jy9wa3k_82243097}' |tr 'a-z' 't-za-s'
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `enc_flag` file using `wget`.
+2. See the content using `cat`.
+3. Convert the encoded data into normal data by  using `cyberchef(frombase64,rot 13 bruteforce)` by doing base64 twice on `enc_flag data` and  `https://www.dcode.fr/caesar-cipher` by doing shifting 19 characters forward.
+4. Another method is using `echo` command with `tr 'a-z' 't-za-s'` after finding the base64 deocding twice or use separate one `step 2 on code /terminal snippet ones.`.
+5. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{caesar_d3cr9pt3d_82243097}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to perform base64 decoding  twice and caesar cipher for that decoding and what tools are required to do that.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. cat
+3. echo
+4. |
+5. tr
+6. cyberchef(frombase64,rot13 bruteforce)
+7. https://www.dcode.fr/caesar-cipher
+8. base64
+9. sed
+```
+---

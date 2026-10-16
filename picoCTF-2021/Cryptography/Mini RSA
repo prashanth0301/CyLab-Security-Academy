@@ -1,0 +1,110 @@
+---
+tags: [picoCTF2021, Cryptography, Medium]
+challenge_name: Mini RSA
+
+solved_date: 2026-10-16
+---
+
+# 🚩 Challenge: [Mini RSA]
+![alt text](mini_rsa.png)
+## 📝 Challenge Description
+What happens if you have a small exponent? There is a twist though, we padded the plaintext so that 
+(M∗∗e) is just barely larger than N. Let's decrypt this: values
+
+Hints:
+1. RSA tutorial
+
+2. How could having too small of an e affect the security of this key?
+
+3. Make sure you don't lose precision, the numbers are pretty big (besides the e value)
+
+4. You shouldn't have to make too many guesses
+
+5. academy is in the decrypted message, but not at the beginning
+
+
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/c38aad598cec5f49f44a9d3d52f971d09b1c834876274d278c5bfef04935fceb/values
+2. cat values
+3. nano mini_rsascript.py
+
+# RSA low-exponent attack: e = 3
+
+c = 5709720175026317841944505166332182779419760031115432215563425901875620052791608163398750297304277886495537367793006288112991932717211066611899319963701838062828209254458935983141207100322897221021063116398621664612418813778554568264340430225832578419510188716272485416847020031786240493474216219976022230869888952027678216917573096647103329007747318226924546155390806085120914969452892742334587155888067115809741247942520249413550823776542714197976954393983964547415885494497967317041948018762619837565110934913856322148114605081220228082382496419481186347789827332766319099768385339675485674098729928722491454024819209643705436617193628436345338680537047177323301194162660757103489761598885882853346119600569195748535459069143523542108427003139728980057083066664641150644821647353430627540846457261643465679095174704766947857556896761656169629741900371937539062751103533758611539748595561989792317060484717828643461989154370495487728398479845553917495920818130003766392290200672893336450122809476169268494312
+
+def integer_cube_root(n):
+    low = 0
+    high = 1 <<((n.bit_length() + 2) // 3)
+
+    while low + 1 < high:
+        mid = (low + high) // 2
+
+        if mid ** 3 <= n:
+            low = mid
+        else:
+            high = mid
+
+    return low
+
+# Recover the plaintext integer
+m = integer_cube_root(c)
+
+# Confirm the attack worked
+if m ** 3 == c:
+    print("[+] Exact cube root found!")
+
+    # Convert integer to bytes
+    raw = m.to_bytes((m.bit_length() + 7) // 8, "big")
+    text = raw.decode("utf-8")
+
+    print("[+] Decrypted plaintext:")
+    print(repr(text))
+
+    # Extract the flag
+    start = text.find("academy{")
+    end = text.find("}", start)
+
+    if start != -1 and end != -1:
+        flag = text[start:end + 1]
+        print("\n[+] Flag:", flag)
+    else:
+        print("Flag format not found.")
+else:
+    print("[-] Ciphertext is not an exact cube.")
+
+
+4. python mini_rsascript.py
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `values` file using `wget`.
+2. See the content using `cat`.
+3. Write a python script to find a flag `step3 in code/termianl snippets` and run using `python`.
+4. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{e_sh0u1d_b3_lArg3r_35f26e1a}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to decrypt the flag using RSA algorithm with various values like cube root ,c,e.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. cat
+3. python
+4. RSA values
+```
+---
