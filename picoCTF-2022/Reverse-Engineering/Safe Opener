@@ -1,0 +1,60 @@
+---
+tags: [picoCTF2022, Reverse-Engineering, Medium]
+challenge_name: Safe Opener
+
+solved_date: 2026-10-17
+---
+
+# 🚩 Challenge: [Safe Opener]
+![alt text](safeopener.png)
+## 📝 Challenge Description
+Can you open this safe? I forgot the key to my safe but this program
+ is supposed to help me with retrieving the lost key. Can you help me unlock my safe?
+
+Put the password you recover into the academy flag format like:
+
+academy{password}
+
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/607b4b8ff5398b4844e4c669686ada9e9535afb5440487266e4895f768af4683/SafeOpener.java
+2. nano SafeOpener.java
+3. echo "cGwzYXMzX2wzdF9tM18xbnQwX3RoM19zYWYz" | base64 -d
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `SafeOpener` file using `wget`.
+2. Open the file using `nano` or any other editor.
+3. Find the encoded key in `boolean opensafe` function and copy it.
+4. Decode the encodedkey using `cyberchef(frombase64)` or using `echo`
+commmand.
+5. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{pl3as3_l3t_m3_1nt0_th3_saf3}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to decode the flag with "base64" using cyberchef and echo command.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. nano
+3. echo
+4. |
+5. base64
+6. cyberchef(frombase64)
+```
+---
