@@ -1,0 +1,69 @@
+---
+tags: [picoCTF2023, Reverse-Engineering, Medium]
+challenge_name: Bit-O-Asm-2
+solved_date: 2026-10-18
+---
+
+# 🚩 Challenge: [Bit-O-Asm-2]
+![alt text](bit-o-asm-2.png)
+## 📝 Challenge Description
+Can you figure out what is in the eax register? Put your answer in the academy flag format: academy{n} where n is the contents of the eax register in the decimal number base. If the answer was 0x11 your flag would be academy{17}. Download the assembly dump here
+.
+
+Hints
+1. PTR's or 'pointers', reference a location in memory where values can be stored.
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/0325d59cb3b29a78bb7872b19f37856d51973b33085362dd4fe5f4cbe7aef80c/disassembler-dump0_b.txt
+2. cat disassembler-dump0_b.txt
+3. printf "%d\n" 0x9fe1a
+
+or
+
+4. echo "ibase=16; 9FE1A" | bc
+
+or
+
+5. python3 -c "print(0x9fe1a)"
+
+or 
+
+6. python
+print(0x9fe1a)
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `disassembler-dump0_b.txt` file using `wget`.
+2. See the content using `cat` command.
+3. Open the `python interpreter or cyberchef(ToBase)` to convert the `hexadecimal value to decimal value`
+4. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{654874}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to find get the flag from converting hex to decimals using cyberchef(To Base) and python and also know the assembly language.
+```
+* What commands or tools did you use?
+```
+1. cyberchef(To Base)
+2. python
+3. wget
+4. cat
+5. echo
+6. ibase16 
+7. printf
+```
+---

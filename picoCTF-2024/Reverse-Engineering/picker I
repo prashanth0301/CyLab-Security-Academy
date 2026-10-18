@@ -1,0 +1,62 @@
+---
+tags: [picoCTF2024, Reverse-Engineering, Medium]
+challenge_name: picker I
+
+solved_date: 2026-10-18
+---
+
+# 🚩 Challenge: [picker I]
+![alt text](pickerI.png)
+## 📝 Challenge Description
+This service can provide you with a random number, but can it do anything else? Connect to the program with netcat:
+
+$ nc chatelaine.cylabacademy.net 13712
+
+The program's source code can be downloaded here.
+
+Hints:
+1. Can you point the program to a function that does something useful for you?
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/0981ed1dcae182f5d272ebe49164d0dc2c09f043e1843e26dbebaa80317d3245/picker-I.py 
+2. nano picker-I.py
+3. nc chatelaine.cylabacademy.net 13712
+4. win
+5. python
+6.  print("".join(chr(x) for x in [0x61,0x63,0x61,0x64,0x65,0x6d,0x79,0x7b,0x34,0x5f,0x64,0x31,0x34,0x6d,0x30,0x6e,0x64,0x5f,0x31,0x6e,0x5f,0x37,0x68,0x33,0x5f,0x72,0x30,0x75,0x67,0x68,0x5f,0x63,0x35,0x35,0x66,0x62,0x65,0x66,0x35,0x7d]))
+ 
+
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `pickerI.py ` file from challenge using `wget`.
+2. See the content in file using `nano` or any text editor.
+3. Copy the hexadecimals given after getting into session after entering `win`.
+4. Paste them in `cyberchef(from hex)` or write a `python script` .
+5. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{4_d14m0nd_1n_7h3_r0ugh_c55fbef5}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to find get the flag from reading the python file and entering the "win" in "netcat connection" converting hex to decimals using cyberchef and python.
+```
+* What commands or tools did you use?
+```
+1. cyberchef(fromhex)
+2. python
+3. wget 
+```
+---

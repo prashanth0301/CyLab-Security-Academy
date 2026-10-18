@@ -1,0 +1,55 @@
+---
+tags: [picoCTF2021, Reverse-Engineering, Medium]
+challenge_name: Bit-O-Asm-1
+
+
+solved_date: 2026-10-18
+---
+
+# 🚩 Challenge: [Bit-O-Asm-1]
+![alt text](bit-o-asm-1.png)
+## 📝 Challenge Description
+Can you figure out what is in the eax register? Put your answer in the academy flag format: academy{n} where n is the contents of the eax register in the decimal number base. If the answer was 0x11 your flag would be academy{17}. Download the assembly dump here.
+
+Hints:
+1. As with most assembly, there is a lot of noise in the instruction dump. Find the one line that pertains to this question and don't second guess yourself!.
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/f24a79de39123fb31928d2d4baf2de2385e587d089b95005083051f9afb90fa9/disassembler-dump0_a.txt
+2. cat disassembler-dump0_a.txt
+3. python
+4. print(chr(0x30))
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `disassembler-dump0_a.txt` file using `wget`.
+2. See the content using `cat` command.
+3. Open the `python interpreter or cyberchef(fromhex)` to convert the `hexadecimal value to decimal value`
+4. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{48}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to find get the flag from converting hex to decimals using cyberchef and python and also know the assembly language.
+```
+* What commands or tools did you use?
+```
+1. cyberchef(fromhex)
+2. python
+3. wget
+4. cat
+```
+---
