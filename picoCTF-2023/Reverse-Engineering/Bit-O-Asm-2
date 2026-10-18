@@ -54,7 +54,7 @@ academy{654874}
 ## 🧠 Key Takeaways & Lessons Learned
 * What did you learn from this specific exploit?
 ```
-I learnt how to find get the flag from converting hex to decimals using cyberchef(To Base) and python and also know the assembly language.
+I learnt how to get the flag from converting hex to decimals using cyberchef(To Base) and python and also know the assembly language.
 ```
 * What commands or tools did you use?
 ```
@@ -63,7 +63,7 @@ I learnt how to find get the flag from converting hex to decimals using cyberche
 3. wget
 4. cat
 5. echo
-6. ibase16 
+6. ibase=16 
 7. printf
 ```
 ---

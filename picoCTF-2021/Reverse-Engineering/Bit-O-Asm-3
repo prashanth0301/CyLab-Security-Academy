@@ -1,0 +1,62 @@
+---
+tags: [picoCTF2021, Reverse-Engineering, Medium]
+challenge_name: Bit-O-Asm-3
+solved_date: 2026-10-18
+---
+
+# 🚩 Challenge: [Bit-O-Asm-3]
+![alt text](bit-o-asm-3.png)
+## 📝 Challenge Description
+Can you figure out what is in the eax register? Put your answer in the academy flag format: academy{n} where n is the contents of the eax register in the decimal number base. If the answer was 0x11 your flag would be academy{17}. Download the assembly dump here
+.
+
+Hints
+1. Not everything in this disassembly listing is optimal.
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/f16508f6e8ba4c520e7541081aee169bf4f5cab84d6852b697299b8cf4aff76a/disassembler-dump0_c.txt
+2. cat disassembler-dump0_c.txt
+3. echo "ibase=16; 9FE1A * 4 + 1F5" | bc
+
+or 
+
+4. python3 -c "print((0x9fe1a * 4) + 0x1f5)"
+
+
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `disassembler-dump0_a.txt` file using `wget`.
+2. See the content using `cat` command.
+3. Convert the register `imul,add` with echo command and bit calculator.
+4. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{2619997}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to  get the flag from assembly language converting them from hexadecimal to decimaml values .
+```
+* What commands or tools did you use?
+```
+1. echo
+2. |
+3. wget
+4. cat
+5. bc
+6. python3
+7. ibase=16
+```
+---
