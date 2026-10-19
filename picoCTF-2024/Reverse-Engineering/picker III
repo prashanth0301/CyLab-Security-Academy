@@ -1,0 +1,61 @@
+---
+tags: [picoCTF2024, Reverse-Engineering, Medium]
+challenge_name: Picker III
+solved_date: 2026-10-19
+---
+
+# 🚩 Challenge: [Picker III]
+![alt text](pickerIII.png)
+## 📝 Challenge Description
+Can you figure out how this program works to get the flag? Connect to the program with netcat:
+
+$ nc chatelaine.cylabacademy.net 26205
+
+The program's source code can be downloaded here.
+
+Instance
+Expires in 10:44
+Hints
+1. Is there any way to modify the function table?
+
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/0c20c076e50e377ab1ba1e162d33f882ab2caaa6c6766d463bf0af50cdd59d4a/picker-III.py
+2. nano picker-III.py
+3. nc chatelaine.cylabacademy.net 26205
+```
+4. 
+![alt text](pickerIII_terminal.png)
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Launch an instance and download the file from challenge using `wget`.
+2. See the content using `nano` or any text editor.
+3. Connect the netcat session and enter the `code/terminal snippets`.
+4. Use `cyberchef(fromhex)` to get the flag. 
+5. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{7h15_15_wh47_w3_g37_w17h_u53r5_1n_ch4rg3_948e866e}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to get the flag based on functions in the file by modifying them.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. nano
+3. nc
+4. cyberchef
+```
+---

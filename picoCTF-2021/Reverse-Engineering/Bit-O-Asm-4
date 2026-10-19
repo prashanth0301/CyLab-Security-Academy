@@ -4,7 +4,7 @@ challenge_name: Bit-O-Asm-4
 solved_date: 2026-10-18
 ---
 
-# 🚩 Challenge: [Bit-O-Asm-3]
+# 🚩 Challenge: [Bit-O-Asm-4]
 ![alt text](bit-o-asm-4.png)
 ## 📝 Challenge Description
 Can you figure out what is in the eax register? Put your answer in the academy flag format: academy{n} where n is the contents of the eax register in the decimal number base. If the answer was 0x11 your flag would be academy{17}. Download the assembly dump here.

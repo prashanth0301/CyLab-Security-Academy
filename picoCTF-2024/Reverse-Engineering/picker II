@@ -1,0 +1,60 @@
+---
+tags: [picoCTF2024, Reverse-Engineering, Medium]
+challenge_name: Picker II
+solved_date: 2026-10-19
+---
+
+# 🚩 Challenge: [Picker II]
+![alt text](pickerII.png)
+## 📝 Challenge Description
+Can you figure out how this program works to get the flag? Connect to the program with netcat:
+
+$ nc chatelaine.cylabacademy.net 39470
+
+The program's source code can be downloaded here.
+
+Instance
+Expires in 0:44
+Hints
+1. Can you do what win does with your input to the program?
+
+---
+
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/f8abba45df42d6f69f48bf8a8a9153933666437eb262f545456db291a256ef29/picker-II.py
+2. nano picker-II.py
+3. nc chatelaine.cylabacademy.net 39470
+4. print(open('flag.txt','r').read())
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Launch an instance and download the file from challenge using `wget`.
+2. See the content using `nano` or any text editor.
+3. Connect the netcat session and enter the `print statement of reading flag.txt`.
+4. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{f1l73r5_f41l_c0d3_r3f4c70r_m1gh7_5ucc33d_bd7d479d}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to get the flag based on the print statement with reading a file called flag.txt.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. nano
+3. nc
+4. print()
+```
+---
