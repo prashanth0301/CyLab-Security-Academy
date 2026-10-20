@@ -1,0 +1,57 @@
+---
+tags: [picoCTF2023, Reverse Engineering, Medium]
+challenge_name: GDB baby step 2
+solved_date: 2026-10-20
+---
+
+# 🚩 Challenge: [GDB baby step 2]
+![alt text](gdb_bs_2.png)
+## 📝 Challenge Description
+Can you figure out what is in the eax register at the end of the main function? Put your answer in the academy flag format: academy{n} where n is the contents of the eax register in the decimal number base. If the answer was 0x11 your flag would be academy{17}. Debug this
+.
+
+Hints
+1. You could calculate eax yourself, or you could set a breakpoint for after the calculcation and inspect eax to let the program do the heavy-lifting for you.
+
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/eea5e81c4ce7d6dcb85a3fe7d2edae4465705d230c68c45365cb9f24a69dfcf1/debugger0_b
+2. gdb debugger0_b
+3. disassemble main
+4. break *main+59
+5. run
+6. info registers eax
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the challenge file using `wget`.
+2. Debug the file code with `gdb` and `disassemble` the code with main.
+3. Set a breakpoint to the program so that it will calculate the number by running `run` and checking the info of `eax`.
+4. After conversion it is the flag.
+
+---
+
+## 🏁 Flag
+```text
+academy{307019}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt what is gdb,disassemble,break,run and info registeres eax and how those works to get the flag.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. gdb
+3. disassemble
+4. break main
+5. run
+6. info registers eax
+```
+---

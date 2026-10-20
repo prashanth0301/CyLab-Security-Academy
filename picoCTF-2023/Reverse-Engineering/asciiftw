@@ -1,0 +1,58 @@
+---
+tags: [picoCTF2023, Reverse Engineering, Medium]
+challenge_name: ASCII FTW
+solved_date: 2026-10-20
+---
+
+# 🚩 Challenge: [ASCII FTW]
+![alt text](asciiftw.png)
+## 📝 Challenge Description
+This program has constructed the flag using hex ascii values. Identify the flag text by disassembling the program. You can download the file from here
+.
+
+Hints
+1. The combined range of hex-ascii for English alphabets and numerical digits is from 30 to 7A.
+
+2. Online hex-ascii converters can be helpful.
+
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/1f9ccb30f15b0d3c8f20388a8e187101cfc688bb04ca9437e4ad695920f91f64/asciiftw
+2. gdb asciiftw
+3. disassemble main
+4. break *main+202
+5. run
+6. x/s $rbp-0x30
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the challenge file using `wget`.
+2. Debug the file code with `gdb` and `disassemble` the code with main.
+3. Set a breakpoint to the program with main and run and examine based on string from starting point `0x30`.
+4. The flag will be displayed.
+---
+
+## 🏁 Flag
+```text
+academy{ASCII_IS_EASY_368FB6C1}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how the flag is present in the hexadecimal values and findout based on breakpoint and examining string from 0x30 onwards.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. gdb
+3. disassemble main
+4. break *main+202
+5. run
+6. x/s $rbp-0x30
+```
+---

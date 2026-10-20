@@ -1,0 +1,67 @@
+---
+tags: [picoCTF2023, Reverse Engineering, Medium]
+challenge_name: GDB baby step 3
+solved_date: 2026-10-20
+---
+
+# 🚩 Challenge: [GDB baby step 3]
+![alt text](gdb_bs_3.png)
+## 📝 Challenge Description
+Now for something a little different. 0x2262c96b is loaded into memory in the main function. Examine byte-wise the memory that the constant is loaded in by using the GDB command x/4xb addr. The flag is the four bytes as they are stored in memory. If you find the bytes 0x11 0x22 0x33 0x44 in the memory location, your flag would be: academy{0x11223344}. Debug this
+.
+
+Hints
+1. You'll need to breakpoint the instruction after the memory load.
+
+2. Use the gdb command x/4xb addr with the memory location as the address addr to examine. GDB manual page
+.
+
+3. Any registers in addr should be prepended with $ like $rbp.
+
+4. Don't use square brackets for addr
+
+5. What is endianness
+?
+
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/5eb60afe8ad6df789decfd9d5af027dc8184bfbc20e953f76ed38bd9ce3d9582/debugger0_c
+2. gdb debugger0_c
+3. disassemble main
+4. break *main+26
+5. run
+6. x/4xb $rbp-0x4
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the challenge file using `wget`.
+2. Debug the file code with `gdb` and `disassemble` the code with main.
+3. Set a breakpoint to the program so that it will calculate the number by running `run` and address of the memory.
+4. After conversion add `0x` with hex values based on little endianness then  it is the flag.
+
+---
+
+## 🏁 Flag
+```text
+academy{0x6bc96222}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt what is gdb,disassemble,break,run and addr and how those works to get the flag.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. gdb
+3. disassemble
+4. break main
+5. run
+6. x/4x addr
+```
+---

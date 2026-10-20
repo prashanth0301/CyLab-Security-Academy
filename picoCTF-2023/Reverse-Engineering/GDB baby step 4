@@ -1,0 +1,67 @@
+---
+tags: [picoCTF2023, Reverse Engineering, Medium]
+challenge_name: GDB baby step 4
+solved_date: 2026-10-20
+---
+
+# 🚩 Challenge: [GDB baby step 4]
+![alt text](gdb_bs_4.png)
+## 📝 Challenge Description
+main calls a function that multiplies eax by a constant. The flag for this challenge is that constant in decimal base. If the constant you find is 0x1000, the flag will be academy{4096}. Debug this
+.
+
+Hints
+1. A function can be referenced by either its name or its starting address in gdb.
+
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/5c4fe0af7766d02123d4ebea4a32b3b461fc6c5947049092d61d47518f298068/debugger0_d
+2. gdb debugger0_d
+3. disassemble main
+4. break func1
+5. run
+6. disassemble func1
+7. echo $((0x3269))
+
+or
+
+8. python3 -c print(str(0x3269))
+
+or
+
+9. printf "%d\n" 0x3269
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the challenge file using `wget`.
+2. Debug the file code with `gdb` and `disassemble` the code with main.
+3. Set a breakpoint to the program `func1`, running `run` and  then  `disassemble the func1`
+4. Convert the hex into decimals using `echo or python or printf`.
+---
+
+## 🏁 Flag
+```text
+academy{12905}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how the flag is present in the func1 and findout the flag using disassemble func1 and breakpoint.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. gdb
+3. disassemble main
+4. break func1
+5. run
+6. disassemble func1
+7. echo
+8. python
+```
+---
