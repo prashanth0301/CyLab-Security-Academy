@@ -1,0 +1,54 @@
+---
+tags: [picoCTF2021, Forensics, Easy]
+challenge_name: information
+solved_date: 2026-10-21
+---
+
+# 🚩 Challenge: [information]
+![alt text](information.png)
+## 📝 Challenge Description
+Files can always be changed in a secret way. Can you find the flag? cat.jpg
+
+Hints:
+1. Look at the details of the file
+
+2. Make sure to submit the flag as academy{XXXXX}
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/c585b4adbdaa06f409db7bf5012c2e58e9aab24669764a5f1cf0f9ce0d60dcfd/cat.jpg
+2. exiftool cat.jpg
+3. echo "YWNhZGVteXt0aGVfbTN0YWRhdGFfMXNfbW9kaWZpZWR9"| base64 -d
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the image file from challenge using `wget`.
+2. Find the metadata of the image by `exiftool`.
+3. Look for the `base64 encoding text` and copy it and run the command `echo` to decrypt with `base64` or `cyberchef(frombase64)`.
+4. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{the_m3tadata_1s_modified}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to get the flag from the image metadata.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. echo
+3. exiftool
+4. |
+5. base64
+6. cyberchef(frombase64)
+```
+---

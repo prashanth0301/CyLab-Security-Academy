@@ -1,0 +1,46 @@
+---
+tags: [picoCTF2019, Forensics, Easy]
+challenge_name: glory of the garden
+solved_date: 2026-10-21
+---
+
+# 🚩 Challenge: [glory of the garden]
+![alt text](glory_garden.png)
+## 📝 Challenge Description
+This file contains more than it seems. Get the flag from garden.jpg
+.
+Hints
+1. What is a hex editor?
+---
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/e78198c6a7dc5e471e8429d4953e7595feafe17764258eec169b8dab8bb3c925/garden.jpg
+2. xxd garden.jpg
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `garden.jpg` from challenge using `wget`.
+2. See the `flag` using the `xxd` from image file or `hexed.it`.
+
+---
+
+## 🏁 Flag
+```text
+ademy{more_than_m33ts_the_3y3e23d7ba9}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how the flag is stored in image format and find it using `xxd` or `hexed.it`.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. xxd
+3. hexed.it
+```
+---
