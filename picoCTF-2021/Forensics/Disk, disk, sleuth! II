@@ -1,0 +1,62 @@
+---
+tags: [picoCTF2021, Forensics, Medium]
+challenge_name: Disk, disk, sleuth!
+solved_date: 2026-10-22
+---
+
+# 🚩 Challenge: [Disk, disk, sleuth!]
+![alt text](disk_sleuth2.png)
+## 📝 Challenge Description
+All we know is the file with the flag is named down-at-the-bottom.txt... dds2-alpine.flag.img.gz
+
+Hints
+1. The sleuthkit has some great tools for this challenge as well.
+
+2. Sleuthkit docs here are so helpful: TSK Tool Overview
+
+3. This disk can also be booted with qemu!
+
+---
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/1ad46cf0cde486d380800280d3b5008df7b7e68cf728942585d570098f1aef5f/dds2-alpine.flag.img.gz
+2. sudo apt install -y sleuthkit
+3. gunzip dds2-alpine.flag.img.gz
+4. mmls dds2-alpine.flag.img
+5. fls -o 2048 dds2-alpine.flag.img
+6. fls -o 2048 dds2-alpine.flag.img 18290
+7. icat -o 2048 dds2-alpine.flag.img 18291
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the file from challenge using `wget`.
+2. Install the sleuthkit from apt package.
+3. Unzip the zipped file using `gunzip`.
+4. Find the flag using `mmls,fls,icat` using the steps in `code/terminal snippets`.
+
+---
+
+## 🏁 Flag
+```text
+academy{f0r3ns1c4t0r_n0v1c3_95c645ad}
+
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how the flag is found using the  `TSK` tools such as mmls,fls,icat.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. gunzip
+3. mmls
+4. fls
+5. icat
+```
+---
