@@ -1,0 +1,59 @@
+---
+tags: [picoCTF2019, Forensics , Medium]
+challenge_name: What Lies Within
+solved_date: 2026-10-23
+---
+
+# 🚩 Challenge: [What Lies Within]
+![alt text](wt_lies_within.png)
+## 📝 Challenge Description
+There's something in the building
+. Can you retrieve the flag?
+
+Hints
+1. There is data encoded somewhere... there might be an online decoder.
+---
+
+
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/5235bfccd8f3cc2d059ee828f774846542f28f7ec66cb4f0c6ceb536c38026d4/buildings.png
+2. xdg-open buildings.png
+3. sudo apt update
+4. sudo apt install ruby ruby-dev chasen gem -y
+5. sudo gem install zsteg
+6. zsteg buildings.png
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the image file from challenge using `wget`.
+2. Open the image with `xdg-open`. 
+3. Install the `zsteg and gem` with sudo before that update `apt` package.
+4. Run the command `zsteg with image name`.
+5. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{h1d1ng_1n_th3_b1t5}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to get the flag from  an image file where it is hiding in data using "zsteg"
+```
+* What commands or tools did you use?
+```
+1. wget
+2. zsteg
+3. gem
+4. xdg-open
+```
+---

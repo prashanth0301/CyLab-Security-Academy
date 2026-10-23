@@ -1,0 +1,59 @@
+---
+tags: [picoCTF2022, Forensics , Medium]
+challenge_name: St3g0
+solved_date: 2026-10-23
+---
+
+# 🚩 Challenge: [St3g0]
+![alt text](st3g0.png)
+## 📝 Challenge Description
+Download this image and find the flag.
+
+Download image
+Hints
+1. We know the end sequence of the message will be $t3g0.
+---
+
+
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/01f9976b25d3f083166b941c63be9d195b9a4289a2351dcceb0ea944a30bcf83/academy.flag.png
+2. xdg-open academy.flag.png
+3. sudo apt update
+4. sudo apt install ruby ruby-dev chasen gem -y
+5. sudo gem install zsteg
+6. zsteg academy.flag.png
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the image file from challenge using `wget`.
+2. Open the image with `xdg-open`. 
+3. Install the `zsteg and gem` with sudo before that update `apt` package.
+4. Run the command `zsteg with image name`.
+5. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{7h3r3_15_n0_5p00n_6c8e74e0}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to get the flag from  an image file where it is hiding with colors using "zsteg".
+```
+* What commands or tools did you use?
+```
+1. wget
+2. xdg-open
+3. gem
+4. zsteg
+```
+---

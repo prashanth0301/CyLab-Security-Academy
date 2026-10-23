@@ -1,0 +1,58 @@
+---
+tags: [picoCTF2019, Forensics , Medium]
+challenge_name: extensions
+solved_date: 2026-10-23
+---
+
+# 🚩 Challenge: [extensions]
+![alt text](extensions.png)
+## 📝 Challenge Description
+This is a really weird text file. Can you find the flag? Get the flag from TXT
+.
+
+Hints
+1. How do operating systems know what kind of file it is? (It's not just the ending!)
+
+2. Make sure to submit the flag as academy{XXXXX}
+---
+
+
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/a5d365fedad883763fb28c78e25a1765220bef6501848c84f2a7a7adf74d83cd/flag.txt
+2. cat flag.txt
+3. mv flag.txt flag.png
+4. xdg-open flag.png 
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the file from challenge using `wget`.
+2. See the content with `cat` or any other text editor.
+3. move the extension of file from `txt to png`.
+4. Open the image with `xdg-open`.
+5. The flag will be displayed.
+
+---
+
+## 🏁 Flag
+```text
+academy{now_you_know_about_extensions}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how the flag is placed in png extension where as the file is txt extension.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. cat
+3. mv
+4. xdg-open
+```
+---
