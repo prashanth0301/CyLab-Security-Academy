@@ -1,0 +1,74 @@
+---
+tags: [picoCTF2021, Forensics, Medium]
+challenge_name: Trivial Flag Transfer Protocol
+
+solved_date: 2026-10-24
+---
+
+# 🚩 Challenge: [Trivial Flag Transfer Protocol]
+![alt text](tftp.png)
+## 📝 Challenge Description
+Figure out how they moved the flag. tftp.pcapng
+
+Hints
+1. What are some other ways to hide data?
+
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/c867f9c01ef11f33b38ca48b413b5b9b3067891682c49225c0cc97c32bcb4082/tftp.pcapng
+2. echo "GSGCQBRFAGRAPELCGBHEGENSSVPFBJRZHFGQVFTHVFRBHESYNTGENAFSRE.SVTHERBHGNJNLGBUVQRGURSYNTNAQVJVYYPURPXONPXSBEGURCYNA" |tr 'A-Z' 'N-ZA-M'
+
+TFTPDOESNTENCRYPTOURTRAFFICSOWEMUSTDISGUISEOURFLAGTRANSFER.FIGUREOUTAWAYTOHIDETHEFLAGANDIWILLCHECKBACKFORTHEPLAN
+
+3. echo "VHFRQGURCEBTENZNAQUVQVGJVGU-QHRQVYVTRAPR.PURPXBHGGURCUBGBF" | tr 'A-Z' 'N-ZA-M'                                                     
+IUSEDTHEPROGRAMANDHIDITWITH-DUEDILIGENCE.CHECKOUTTHEPHOTOS
+
+4. steghide extract -sf ~/tftp/picture3.bmp -p DUEDILIGENCE
+5. cat flag.txt
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `pcapng file` from challenge using `wget`.
+2. Open wireshark, click file at `top left and click open` and choose the `pcapng file`.
+3. Open the network capture in Wireshark.
+4. Click `File -> Export Objects -> TFTP...` and click `Save All to download all the hidden files` (instructions.txt, plan, program.deb, and the pictures).
+5. Open and decode the text files in your terminal using the cat and tr commands to reveal the hidden clues:
+	• Run `cat instructions.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'` to read the instructions.
+	• Run `cat plan.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'` to reveal the secret passphrase: `DUEDILIGENCE`.
+6. Install the extraction tool contained in the folder by typing:
+`sudo apt install steghide`
+Use code with caution.
+7. Extract the hidden flag from the third image by running this exact command with the passphrase you decoded:
+`steghide extract -sf picture3.bmp -p DUEDILIGENCE`
+Use code with caution.
+6. Open the newly created text file to see your flag:
+`cat flag.txt`
+
+---
+
+## 🏁 Flag
+```text
+academy{h1dd3n_1n_pLa1n_51GHT_18375919}
+
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to extract unencrypted files hidden inside a TFTP packet capture, decode a classic ROT13 substitution cipher to find hidden configuration clues, and use steganography to extract a secret text payload embedded inside a bitmap image file.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. wireshark
+3. tr
+4. cat
+5. echo
+6. steghide
+```
+---

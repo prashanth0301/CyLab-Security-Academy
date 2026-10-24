@@ -1,0 +1,58 @@
+---
+tags: [picoCTF2021, Forensics, Medium]
+challenge_name: Wireshark doo dooo do doo...
+solved_date: 2026-10-24
+---
+
+# 🚩 Challenge: [Wireshark doo dooo do doo...]
+![alt text](wireshark_do.png)
+## 📝 Challenge Description
+Can you find the flag? shark1.pcapng
+
+---
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/bcc244e5738c2a9af3a7fd84a79e1bf8436dc32716855581a60e27e526133fd7/shark1.pcapng
+2. echo npnqrzl{c33xno00_1_f33_h_qrnqorrs} | tr 'a-z' 'n-za-m'
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `pcapng file` from challenge using `wget`.
+2. Open wireshark, click file at `top left and click open` and choose the `pcapng file`.
+3. Press Ctrl + F.
+4. Change the first dropdown to Packet bytes.
+5. Change the second dropdown to Regular Expression.
+6. Type this into the search box: [a-zA-Z]{7}\{[a-zA-Z0-9_]+\}
+7. Click Find.
+8. This regex pattern tells Wireshark to look for any 7 letters followed by { and }, which perfectly matches the format of picoCTF{...} even if the letters themselves are completely scrambled by ROT13.
+9. Convert the scrambled text into normal text using `cyberchef(rot13)` or echo command.
+10. The flag will be displayed.
+
+
+
+---
+
+## 🏁 Flag
+```text
+academy{p33kab00_1_s33_u_deadbeef}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how to get the flag using wireshark and understood which areas i need to change like packet bytes and regex in filter bar.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. wireshark
+3. cyberchef(rot13)
+4. echo
+5. tr
+```
+---
