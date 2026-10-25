@@ -1,0 +1,59 @@
+---
+tags: [picoCTF20219, Forensics, Medium]
+challenge_name: m00nwalk
+solved_date: 2026-10-25
+---
+
+# 🚩 Challenge: [m00nwalk]
+![alt text](m00nwalk.png)
+## 📝 Challenge Description
+Decode this message
+ from the moon.
+
+Hints
+1. How did pictures from the moon landing get sent back to Earth?
+
+2. What is the CMU mascot?, that might help select a RX option
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/d825fde6581b1311eafdd403da1cc96f1f98fe3fe84cd71d850310ebb3908088/message.wav
+2. file message.wav
+3. git clone https://github.com/colaclanth/sstv.git 
+4. cd sstv
+5. sudo python setup.py install
+6. sstv -d ~/message.wav -o message.png
+7. xdg-open message.png
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `wav file` from challenge using `wget`.
+2. Check the file format with `file`.
+3. Clone the github repository of `colaclanth/sstv`.
+4. Move into that folder and install `setup.py` with python.
+5. Run the sstv command by converting the `wav file ->png file`.
+6. See the image file using `xdg-open` the flag will be displayed here.
+---
+
+## 🏁 Flag
+```text
+picoCTF{beep_boop_im_in_space}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how the audio file is hiding the image file and it has some secret data in it.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. github(colaclanth/sstv)
+3. git clone
+4. sstv
+5. xdg-open
+6. file
+---

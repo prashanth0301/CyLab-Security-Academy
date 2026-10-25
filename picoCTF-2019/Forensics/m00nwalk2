@@ -1,0 +1,78 @@
+---
+tags: [picoCTF20219, Forensics, Hard]
+challenge_name: m00nwalk2
+solved_date: 2026-10-25
+---
+
+# 🚩 Challenge: [m00nwalk2]
+![alt text](m00nwalk2.png)
+## 📝 Challenge Description
+Revisit the last transmission. We think this transmission
+ contains a hidden message. There are also some clues clue 1
+, clue 2
+, clue 3
+.
+
+Hints
+1. Use the clues to extract the another flag from the .wav file
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/56d435f22572b90779f8dfb64b63981437fd3eeaf53fdf0bb58227bd4adc541a/message.wav
+2. wget https://challenge-files.cylabacademy.net/library/56d435f22572b90779f8dfb64b63981437fd3eeaf53fdf0bb58227bd4adc541a/clue1.wav
+3. wget https://challenge-files.cylabacademy.net/library/56d435f22572b90779f8dfb64b63981437fd3eeaf53fdf0bb58227bd4adc541a/clue2.wav
+4. wget https://challenge-files.cylabacademy.net/library/56d435f22572b90779f8dfb64b63981437fd3eeaf53fdf0bb58227bd4adc541a/clue3.wav
+5. file message.wav
+6. git clone https://github.com/colaclanth/sstv.git 
+7. cd sstv
+8. sudo python setup.py install
+9. sstv -d ~/message.wav -o message.png
+10. sstv -d ~/clue1.wav -o clue1.png
+11. sstv -d ~/clue2.wav -o clue2.png
+12. sstv -d ~/clue3.wav -o clue3.png
+13. xdg-open message.png
+14. xdg-open clue1.png
+15. xdg-open clue2.png
+16. xdg-open clue3.png
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `4 wav files` from challenge using `wget`.
+2. Check the file format with `file`.
+3. Clone the github repository of `colaclanth/sstv`.
+4. Move into that folder and install `setup.py` with python.
+5. Run the sstv command by converting the `wav file ->png file` for all wav files.
+6. See the image files using `xdg-open` the flag will be displayed here.
+7. Follow the clues 1,2&3 to get the flag for this challenge.
+8. In clue1 we have a password named `hidden_stegosaurus` and in clue2 we have `the quieter you are the more you can HEAR` and in clue3 we have `futureboy`website by author `Alan Eliason`.
+
+(or) 
+
+1. Open the `futureboy.us website->select steganography->Decode an image`.
+2. Upload the `message.wav` file and password as `hidden_stegosaurus` which can be found in `clue3.wav by converting it into image using sstv`.
+3. The flag wii be displayed after some time and be patience.
+---
+
+## 🏁 Flag
+```text
+academy{the_answer_lies_hidden_in_plain_sight}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learnt how the audio file is hiding the image file and it has some secret data in it and also clues including to solve the challenge.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. github(colaclanth/sstv)
+3. git clone
+4. sstv
+5. xdg-open
+6. file
+7. futureboy.us(steganography)
+---
