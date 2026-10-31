@@ -1,0 +1,58 @@
+---
+tags: [picoCTF2023, Reverse-Engineering, Medium]
+challenge_name: Ready Gladiator 0
+solved_date: 2026-10-31
+---
+
+# 🚩 Challenge: [Ready Gladiator 0]
+![alt text](gladiator0.png)
+## 📝 Challenge Description
+Can you make a CoreWars warrior that always loses, no ties? Your opponent is the Imp. The source is available here
+. If you wanted to pit the Imp against himself, you could download the Imp and connect to the CoreWars server like this:
+
+nc xebec.cylabacademy.net 48525 < imp.red
+
+Instance
+Expires in 10:53
+Hints
+1. CoreWars is a well-established game with a lot of docs and strategy
+
+2. Experiment with input to the CoreWars handler or create a self-defeating bot
+
+### Code / Terminal Snippets
+```bash
+1. wget https://challenge-files.cylabacademy.net/library/ab92e7940fa9b3fa86682f174e3ba1ac4f17357d17387fb1cbadd12b027b986a/imp.red
+2. nano imp.red
+3. nc xebec.cylabacademy.net 48525 < imp.red
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the file from the challenge using `wget`.
+2. Open the `imp.red` file using `nano` or any text editor and change `mov 0,1` to `mov 0,0` and the code is written in `redcode` assembly language used in corewars.
+3. Main logic is to lose all games and no ties also.
+4. Run this netcat session `nc xebec.cylabacademy.net 48525 < imp.red` and the flag will be diplayed.
+ 
+---
+
+## 🏁 Flag
+```text
+academy{h3r0_t0_z3r0_4m1r1gh7_1c8e5812}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learned how to get the flag from the file by changing assembly language of a game to lose all rounds in a game.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. nano
+3. nc
+4.redcode
+```
+---

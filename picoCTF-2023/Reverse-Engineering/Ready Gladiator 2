@@ -1,0 +1,64 @@
+---
+tags: [picoCTF2023, Reverse-Engineering, Medium]
+challenge_name: Ready Gladiator 2
+solved_date: 2026-10-31
+---
+
+# 🚩 Challenge: [Ready Gladiator 2]
+![alt text](gladiator2.png)
+## 📝 Challenge Description
+Can you make a CoreWars warrior that wins every single round? Your opponent is the Imp. The source is available here
+. If you wanted to pit the Imp against himself, you could download the Imp and connect to the CoreWars server like this:
+
+nc xebec.cylabacademy.net 32251 < imp.red
+
+To get the flag, you must beat the Imp all 100 rounds.
+
+Instance
+Expires in 10:43
+Hints
+1. If your warrior is close, try again, it may work on subsequent tries... why is that?
+
+### Code / Terminal Snippets
+```bash
+1. wget 
+2. nano imp.red
+
+;redcode
+;name Imp Killer
+;assert 1
+jmp 0,<-2
+end
+3. nc xebec.cylabacademy.net  20433< imp.red
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the file from the challenge using `wget`.
+2. Open the `imp.red` file using `nano` or any text editor and change the code into how it looks in `step2 of code/terminal snippets`. 
+3. Main logic is to win atleast one game to get the flag.
+4. Run this netcat session `nc xebec.cylabacademy.net 32251 < imp.red` and the flag will be diplayed.
+ 
+---
+
+## 🏁 Flag
+```text
+academy{d3m0n_3xpung3r_37214f35}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learned how to get the flag from the file by changing assembly language of a game to win all rounds in a game.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. nano
+3. nc
+4. redcode
+```
+---
