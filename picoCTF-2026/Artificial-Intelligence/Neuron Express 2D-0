@@ -1,0 +1,78 @@
+---
+tags: [picoCTF2026, AI, Easy]
+challenge_name: Neuron Express 2D-0
+solved_date: 2026-11-01
+---
+
+# 🚩 Challenge: [Neuron Express 2D-0]
+![alt text](neuron_express_2D-0.png)
+## 📝 Challenge Description
+
+Probe a 2D perceptron over the network. Send it integer pairs (x, y) and watch whether the neuron fires or not. Use those responses to figure out the underlying integer weights and bias, then submit your guess with the TEST command to earn the flag. Connect with netcat:
+
+$ nc xebec.cylabacademy.net 32922
+
+The input bounds are shown on connect to keep the search small.
+
+Instance
+Expires in 4:52
+Hints:
+1. A perceptron fires when w1*x + w2*y + b >= 0. With a 2D input this is a line in the plane.
+
+2. Try testing a few integer points to locate the boundary and which side returns 0 or 1.
+
+3. The weights and bias are integers, so your guess should use integers too.
+
+4. The TEST command checks every integer (x, y) input in the range.
+
+---
+### Code / Terminal Snippets
+```bash
+1. nc xebec.cylabacademy.net 32922
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+
+1. Connect to the challenge server using `Netcat` and note the allowed input bounds.
+
+2. Probe the perceptron using different combinations of `x` and `y` values and record their outputs.
+
+3. Observe that the neuron fires whenever `x >= 3`, regardless of the value of `y`, and stays quiet when `x < 3`.
+
+4. Choose `1` as the weight of `x` and `0` as the weight of `y`, since changing `y` does not affect the observed output.
+
+5. Calculate the bias as `-3` using the decision boundary at `x = 3` using equation w1*x + b>=0 (or) b=-3w_x`.
+
+6. Submit the candidate using `TEST 1 0 -3`.
+
+7. Once the server accepts the guess, retrieve the flag.
+
+
+---
+
+## 🏁 Flag
+```text
+academy{n3ur0n_expr_2d_5e3144d9}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+
+* What did you learn from this specific exploit?
+```
+1. Learned how to identify a 2D perceptron's decision boundary through input-output probing.
+
+2. Understood how to determine candidate weights and bias from observed firing behavior.
+
+3. Learned that a zero weight makes the perceptron independent of that input coordinate.
+
+4. Practiced validating a perceptron model using the TEST command.
+```
+* What commands or tools did you use?
+```
+1. netcat(nc)
+2. workspace(cylab)
+```
+---

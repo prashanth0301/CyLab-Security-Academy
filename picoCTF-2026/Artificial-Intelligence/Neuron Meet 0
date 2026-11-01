@@ -1,0 +1,65 @@
+---
+tags: [picoCTF2026, AI, Easy]
+challenge_name: Neuron Meet 0
+solved_date: 2026-11-01
+---
+
+# 🚩 Challenge: [Neuron Meet 0]
+![alt text](neuron_meet_0.png)
+## 📝 Challenge Description
+Probe a 1D perceptron over the network. Send it numbers and watch whether the neuron fires or not. Use those responses to figure out the decision boundary, then line up the last eight outputs to read the ASCII for p (01110000) and you'll earn the flag. Connect with netcat:
+
+$ nc xebec.cylabacademy.net 35366
+
+The input bounds are shown on connect to keep the search small. You cannot submit the same number back-to-back.
+
+Instance
+Expires in 1:04
+Hints
+1. A perceptron fires when w*x + b >= 0. With a 1D input there is only one threshold to find.
+
+2. You only need values on opposite sides of the threshold to build the output pattern.
+
+3. Remember that repeated inputs are blocked, even if they would produce the same output.
+
+### Code / Terminal Snippets
+```bash
+1. nc xebec.cylabacademy.net 38794
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+
+1. Connect the challenge using `netcat` and read the allowed input bounds.
+2. Probe the endpoints to find opposite outputs.
+3. Use binary search to determine the threshold.
+4. Identify which `side produces output 0` and `which produces output 1`.
+5. Choose `distinct inputs on the correct sides` to generate `01110000`('p').
+6. Read the flag returned by the server. 
+
+---
+
+## 🏁 Flag
+```text
+academy{n3ur0n_m3t_e231b9ca}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+1. Learned how to infer a perceptron's decision boundary through black-box input/output probing.
+
+2. Understood how binary search can efficiently narrow down a threshold.
+
+3. Learned how to construct a target output sequence by selecting inputs on the appropriate sides of the boundary.
+
+4. Practiced using Netcat to interact with a remote challenge service.
+```
+* What commands or tools did you use?
+```
+1. nc
+2. workspace(cylab)
+```
+---

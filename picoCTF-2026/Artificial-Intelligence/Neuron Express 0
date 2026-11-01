@@ -1,0 +1,93 @@
+---
+tags: [picoCTF2026, AI, Easy]
+challenge_name: Neuron Express 0
+solved_date: 2026-11-01
+---
+
+# 🚩 Challenge: [Neuron Express 0]
+![alt text](neuron_express_0.png)
+## 📝 Challenge Description
+
+Probe a 1D perceptron over the network. Send it integers and watch whether the neuron fires or not. Use those responses to figure out the underlying weight and bias, then submit your guess with the TEST command to earn the flag. Connect with netcat:
+
+$ nc xebec.cylabacademy.net 35479
+
+The input bounds are shown on connect to keep the search small.
+
+Instance
+Expires in 1:01
+Hints
+1. A perceptron fires when w*x + b >= 0. With a 1D input there is only one threshold to find.
+
+2. Try testing a few integers around the boundary to pin down the exact inequality.
+
+3. The TEST command checks every integer input in the range.
+---
+
+### Code / Terminal Snippets
+```bash
+1. nc xebec.cylabacademy.net 35479
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+
+`Step 1: Connect to the challenge`
+
+Open a terminal and connect using Netcat. Read the input bounds displayed by the server.
+
+`Step 2: Probe the perceptron`
+
+Send integers within the permitted range and record the outputs.
+
+I tested different values and observed that:
+
+Inputs below 2 produce output 0.
+
+Input 2 and all larger inputs produce output 1.
+
+This indicates that the decision threshold is 2.
+
+`Step 3: Determine the weight and bias`
+
+Based on the observed threshold, I selected a positive weight and a bias that place the decision boundary at 2.
+
+`Step 4: Submit the guess`
+
+Enter the following command:
+
+TEST 1 -2
+
+The server checks whether the guessed weight and bias reproduce the neuron's outputs for every integer in the allowed range.
+
+`Step 5: Retrieve the flag`
+
+If the submitted values are correct, the server returns the flag.
+
+---
+
+## 🏁 Flag
+```text
+academy{n3ur0n_expr_f075f57b}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+
+* What did you learn from this specific exploit?
+```
+1. Learned how to probe a 1D perceptron using integer inputs and observed its firing behavior.
+
+2. Understood how to identify a decision threshold from input-output responses.
+
+3. Learned how to determine candidate weight and bias values based on observed behavior.
+
+4. Practiced using the TEST command to validate a solution against all allowed inputs.
+```
+* What commands or tools did you use?
+```
+1. netcat(nc)
+2. workspace(cylab)
+```
+---
