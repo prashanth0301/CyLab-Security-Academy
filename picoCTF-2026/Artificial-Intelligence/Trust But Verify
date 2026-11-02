@@ -1,0 +1,51 @@
+---
+tags: [picoCTF2026, AI, Easy]
+challenge_name: Trust But Verify
+solved_date: 2026-11-02
+---
+
+# 🚩 Challenge: [Trust But Verify]
+![alt text](trust_but_verify.png)
+## 📝 Challenge Description
+Play through an AI ethics interactive fiction where confident AI outputs can be wrong, subtly wrong, or almost-right. Verify claims, code, and citations to learn practical habits for safe AI-assisted work. Connect with netcat:
+
+$ nc xebec.cylabacademy.net 11791
+
+Instance
+Expires in 2:12
+Hints:
+1. The game pauses frequently. Press Enter at each continue prompt.
+
+2. The flag is printed near the end of the story.
+
+### Code / Terminal Snippets
+```bash
+1. nc xebec.cylabacademy.net 11791
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Connect the challenge using `netcat`.
+2. Read the content and keep pressing enter and identify `AI and Ren conversation chat` to be like verfiy before trusting the `AI model`.
+3. The flag will be reflected at the end of chat.
+
+---
+
+## 🏁 Flag
+```text
+academy{7ru57_15_34rn3d_f987ed84}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+I learned how the AI works like it says mostly confident even the info is wrong , we need to verify before trusting.
+```
+* What commands or tools did you use?
+```
+1. netcat(nc)
+2. workspace(cylab)
+```
+---

@@ -1,0 +1,73 @@
+---
+tags: [picoCTF2026, AI, Easy]
+challenge_name: Perceptron Play Naught
+solved_date: 2026-11-02
+---
+
+# 🚩 Challenge: [Perceptron Play Naught]
+![alt text](Perceptron-Play-Naught.png)
+## 📝 Challenge Description
+
+The points would be inseparable in just the x-dimension, but each point now has a new y-value so the set becomes linearly separable in 2D. Watch the ASCII plot update in real time as you tweak the perceptron weights and bias. Separate the labeled points with a single line to earn the flag. Connect with netcat:
+
+$ nc chatelaine.cylabacademy.net 38253
+
+Instance
+Expires in 13:45
+Hints:
+1. Start with the POINTS command to see how the old 1D x-values were lifted into 2D.
+
+2. Use SET for big changes and ADJUST for fine-tuning the weights.
+
+3. A perceptron learns a linear boundary; look for a line that keeps class 0 points on one side and class 1 points on the other.
+
+### Code / Terminal Snippets
+```bash
+1. nc xebec.cylabacademy.net 38253
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+🚀 Solution Path
+
+1. Observe the initial weights, decision boundary, and training points displayed by the challenge.
+
+2. Use the POINTS command to identify the coordinates and expected labels of all training points.
+
+3. Compare the `x and y coordinates separately` to identify which coordinate can `distinguish Class 0 from Class 1`.
+
+4. Observe that all `Class 0 points have negative y-values`, while all `Class 1 points have positive y-values`. Therefore, the x-coordinate is not required for classification.
+
+5. Set the weight of x to 0, the weight of y to 1, and the bias to 0.
+
+6. Enter the following command to update the perceptron:
+
+    `SET 0 1 0` using the equation w1*x+w2*y+b=0
+
+7. Execute the CHECK command to verify that all training points are classified correctly.
+
+8. Once all classifications are correct, retrieve the flag displayed by the challenge.
+
+---
+
+## 🏁 Flag
+```text
+academy{n4ught_bu7_53p4r4b13_277a702d}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+1. Understood how weights and bias control a perceptron's decision boundary and classification.
+
+2.Learned how to identify useful input features by comparing the coordinates of different classes..
+```
+* What commands or tools did you use?
+```
+1. netcat(nc)
+2. workspace(cylab)
+3. Perceptron Play
+```
+---

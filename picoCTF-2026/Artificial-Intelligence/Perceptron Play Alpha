@@ -1,0 +1,72 @@
+---
+tags: [picoCTF2026, AI, Easy]
+challenge_name: Perceptron Play Alpha
+solved_date: 2026-11-02
+---
+
+# 🚩 Challenge: [Perceptron Play Alpha]
+![alt text](Perceptron-Play-Alpha.png)
+## 📝 Challenge Description
+
+Play with the weights and bias of a 2D perceptron while watching an ASCII plot update in real time. Tune the parameters so that the decision boundary separates all of the labeled points and you will earn the flag. Connect with netcat:
+
+$ nc chatelaine.cylabacademy.net 28482
+
+Instance
+Expires in 11:40
+Hints:
+1. Start with the POINTS command to see the labeled data you need to classify.
+
+2. Use SET for big changes and ADJUST for fine-tuning the weights.
+
+3. A perceptron learns a linear boundary; look for a line that keeps class 0 points on one side and class 1 points on the other.
+
+### Code / Terminal Snippets
+```bash
+1. nc xebec.cylabacademy.net 28482
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+
+1. Connect to the Perceptron Play challenge and observe the `initial weights, decision boundary, and training points`.
+
+2. Use the POINTS command to view all input coordinates and their expected labels (0 and 1).
+
+3. Use the SHOW command to examine the graph and identify which points are classified correctly and incorrectly.
+
+4. Observe that the initial weights` (w1 = 1, w2 = -1, b = 0) ` misclassify two points.
+
+5. Change the weights and bias using the SET command to adjust the decision boundary and improve the predictions.
+
+6. Set the weights to w1 = 1, w2 = 1 and the bias to b = 0 using:
+
+`SET 1 1 0` for the equation w1*x+w28y+b=0 
+
+7. Verify the updated predictions using the CHECK command.
+
+8. Once all points are classified correctly, the challenge displays the flag.
+
+---
+
+## 🏁 Flag
+```text
+academy{11n34r1y_53p4r4813_70c164db}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+1. Learned how weights and bias control a perceptron's decision boundary and classification.
+
+2. Understood how to adjust weights to correct misclassified points and achieve accurate predictions.
+```
+* What commands or tools did you use?
+```
+1. netcat(nc)
+2. workspace(cylab)
+3. Perceptron Play
+```
+---

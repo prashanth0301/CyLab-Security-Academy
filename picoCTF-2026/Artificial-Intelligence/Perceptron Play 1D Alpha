@@ -1,0 +1,57 @@
+---
+tags: [picoCTF2026, AI, Easy]
+challenge_name: Perceptron Play 1D Alpha
+solved_date: 2026-11-02
+---
+
+# 🚩 Challenge: [Perceptron Play 1D Alpha]
+![alt text](Perceptron-Play-1D-Alpha.png)
+## 📝 Challenge Description
+
+Play with the weight and bias of a 1D perceptron on a number line. Adjust the parameters until every labeled point is classified correctly and you will earn the flag. Connect with netcat:
+
+$ nc chatelaine.cylabacademy.net 28367
+
+Instance
+Expires in 3:40
+Hints:
+1. Start with the POINTS command to see the labeled data you need to classify.
+
+2. SET changes both weight and bias at once; ADJUST lets you nudge them.
+
+3. A 1D perceptron splits the line at a threshold; move the boundary so class 0 points stay on one side and class 1 points on the other.
+
+### Code / Terminal Snippets
+```bash
+1. nc xebec.cylabacademy.net 28367
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Connect the challenge using `netcat`.
+2. Read the Description given after connecting to challenge and find the correct `w and b` values and set them using `SET` ..
+3. The flag will be reflected after entering `CHECK`.
+
+---
+
+## 🏁 Flag
+```text
+academy{0n3_d_thr35h0ld_1e63ccd3}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+1. I learned how the AI perceptron works by changing the values of `w and b` to get the flag in the pattern.
+
+2. In the way i used SET, POINTS, CHECK, ADJUST to be able to get the flag.
+```
+* What commands or tools did you use?
+```
+1. netcat(nc)
+2. workspace(cylab)
+3. Perceptron Play
+```
+---
