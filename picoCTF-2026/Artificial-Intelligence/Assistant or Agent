@@ -1,0 +1,55 @@
+---
+tags: [picoCTF2026, AI, Easy]
+challenge_name: Assistant or Agent?
+solved_date: 2026-11-03
+---
+
+# 🚩 Challenge: [Assistant or Agent?]
+![alt text](assistant-or_agent.png)
+## 📝 Challenge Description
+
+Return to Westbrook High in this playful AI ethics interactive fiction. Learn when an AI assistant should advise, when an AI agent should act, and how permissions, guardrails, and review checkpoints keep autonomous actions safe. Connect with netcat:
+
+$ nc chatelaine.cylabacademy.net 23751
+
+Instance
+Expires in 14:39
+Hints:
+1. The game pauses frequently. Press Enter at each continue prompt.
+
+2. Agent mode can change the world. Assistant mode can only suggest.
+
+3. A safe path usually includes approvals and limits before actions.
+
+---
+
+## 🚀 Exploitation / Solution Path
+
+1. Connect to the challenge server using Netcat and press Enter at each continue prompt to progress through the story.
+
+2. Follow the safe decision path by distinguishing between AI assistant suggestions and AI agent actions, setting appropriate permissions and limits, requiring approvals before actions, and using review checkpoints.
+
+3. Continue through the interactive story until the challenge displays the flag.
+
+
+
+---
+
+## 🏁 Flag
+```text
+academy{4551574n7_0r_463n7_6a98d58e}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+1. Learned the difference between an AI assistant that provides suggestions and an AI agent that performs actions.
+
+2. Understood the importance of permissions, guardrails, human approvals, and review checkpoints in safe AI automation.
+```
+* What commands or tools did you use?
+```
+1. netcat(nc)
+2. workspace(cylab)
+```
+---

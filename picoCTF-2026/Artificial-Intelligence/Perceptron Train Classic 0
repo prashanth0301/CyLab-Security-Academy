@@ -1,0 +1,56 @@
+---
+tags: [picoCTF2026, AI, Easy]
+challenge_name: Perceptron Train Classic 0
+solved_date: 2026-11-03
+---
+
+# 🚩 Challenge: [Perceptron Train Classic 0]
+![alt text](perceptron_train_classic_0.png)
+## 📝 Challenge Description
+
+Watch a perceptron learn in real time using the classic update rule: only misclassified points trigger updates, with no weight decay. This dataset is intentionally gentle, so many learning rates still converge quickly. Dial in a rate, trigger a run, and the interface will animate each step until every point is classified correctly. Visit the service in your browser:
+
+http://xebec.cylabacademy.net:24838/
+
+Instance
+Expires in 2:03
+Hints:
+1. You get 16 updates per run, and correctly classified points do not change the model in the classic rule.
+
+2. Overshooting is harder in this dataset because the clusters are well separated, but you can still watch the line swing too far if the rate is very high.
+
+3. Use the slider to sweep the range and watch how the decision boundary moves between misclassification updates; there are many sweet spots that separate all points.
+
+4. Binary search is a great strategy for finding a good learning rate. Try this problem
+ to learn how to do a binary search.
+
+
+---
+
+## 🚀 Exploitation / Solution Path
+1. Launch an instance in the challenge.
+2. Open the link given after launching an instance in new tab.
+3. Run training and the model will train based on past data and use slider to slide learning rate.
+4. The flag will be displayed beside to graph.
+
+
+
+---
+
+## 🏁 Flag
+```text
+academy{perceptron_classic_mode_02a3669e}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+1. Learned how the perceptron automatically train with predefined data.
+
+2. Understood how the learning rate decides weights and bias to get the flag.
+```
+* What commands or tools did you use?
+```
+1. browser(chrome)
+```
+---

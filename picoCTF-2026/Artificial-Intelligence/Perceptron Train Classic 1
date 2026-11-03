@@ -1,0 +1,59 @@
+---
+tags: [picoCTF2026, AI, Easy]
+challenge_name: Perceptron Train Classic 1
+solved_date: 2026-11-03
+---
+
+# 🚩 Challenge: [Perceptron Train Classic 1]
+![alt text](perceptron_train_classic_1.png)
+## 📝 Challenge Description
+
+Watch a perceptron learn in real time using the classic update rule: only misclassified points trigger updates, with no weight decay. In this variant you must find 5 successful learning rates (each reaching 100% accuracy) before the flag is revealed. Dial in a rate, trigger a run, and the interface animates each step. Visit the service in your browser:
+
+http://chatelaine.cylabacademy.net:43370/
+
+Instance
+Expires in 11:10
+Hints:
+1. You get 16 updates per run, and correctly classified points do not change the model in the classic rule.
+
+2. The learning-rate sweep is wider in this variant (0.02 through 20.0), so very high values can overshoot hard.
+
+3. Overshooting is harder in this dataset because the clusters are well separated, but you can still watch the line swing too far if the rate is very high.
+
+4. Use the slider to sweep the range and watch how the decision boundary moves between misclassification updates; there are many sweet spots that separate all points.
+
+5. Binary search is a great strategy for finding a good learning rate. Try this problem
+ to learn how to do a binary search.
+
+
+---
+
+## 🚀 Exploitation / Solution Path
+
+1. Launch an instance in the challenge.
+2. Open the link given after launching an instance in new tab.
+3. Run training at five different learning rates to trigger and the model will train based on past data and use slider to slide learning rate.
+4. The flag will be displayed beside to graph.
+
+
+
+---
+
+## 🏁 Flag
+```text
+academy{perceptron_classic_5rates_a95545ef}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+1. Learned how the perceptron automatically train with predefined data.
+
+2. Understood how the learning rate decides weights and bias to trigger perceptron.
+```
+* What commands or tools did you use?
+```
+1. browser(chrome)
+```
+---
