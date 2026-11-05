@@ -1,0 +1,59 @@
+---
+tags: [picoCTF2026, AI, Easy]
+challenge_name: Perceptron Train XOR
+solved_date: 2026-11-05
+---
+
+# 🚩 Challenge: [Perceptron Train XOR]
+![alt text](Perceptron_Train_XOR.png)
+## 📝 Challenge Description
+
+Watch a perceptron learn in real time on XOR data using the classic update rule: only misclassified points trigger updates, with no weight decay. Because XOR is not linearly separable, a single perceptron cannot hit 100% accuracy. Reach 75% accuracy to prove you understand the limitation and reveal the flag. Visit the service in your browser:
+
+http://chatelaine.cylabacademy.net:27713/
+
+Instance
+Expires in 11:54
+Hints
+1. You get 16 updates per run, and correctly classified points do not change the model in the classic rule.
+
+2. The learning-rate sweep is wide (0.02 through 20.0), so very high values can swing the boundary aggressively.
+
+3. XOR cannot be perfectly separated by one line; 75% is the best achievable target for this setup.
+
+4. Use the slider to sweep the range and watch how the decision boundary moves between misclassification updates.
+
+---
+
+## 🚀 Exploitation / Solution Path
+
+1. Open the challenge URL in a web browser and observe the XOR dataset and initial decision boundary.
+
+2. Start the perceptron training and observe how the weights and decision boundary change during the 16 updates.
+
+3. Use the learning-rate slider to experiment with different values between 0.02 and 20.0.
+
+4. Observe how the learning rate affects the movement of the decision boundary and the classification accuracy.
+
+5. Try different learning-rate values and rerun the training until the perceptron reaches the required 75% accuracy.
+
+6. Once the target accuracy is achieved, retrieve the flag displayed by the challenge.
+---
+
+## 🏁 Flag
+```text
+academy{x0r_unl34rn4bl3_by_p3rc3ptr0ns_89cd5062}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+1. Learned how a perceptron updates its weights when it misclassifies a training point.
+
+2. Understood why a single-layer perceptron cannot perfectly classify XOR data and why 75% accuracy is the target.
+```
+* What commands or tools did you use?
+```text
+1. Browser(chrome)
+```
+---

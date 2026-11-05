@@ -1,0 +1,57 @@
+---
+tags: [picoCTF2026, AI, Easy]
+challenge_name: Perceptron Train 3-Bit Parity
+solved_date: 2026-11-05
+---
+
+# 🚩 Challenge: [Perceptron Train 3-Bit Parity]
+![alt text](Perceptron_Train_3-Bit_Parity.png)
+## 📝 Challenge Description
+
+Watch a perceptron learn in real time on 3-bit parity data using the classic update rule: only misclassified points trigger updates, with no weight decay. This challenge extends the same idea into 3 dimensions, and the frontend renders the points in 3D space. Because parity is not linearly separable by one plane, a single perceptron cannot hit 100% accuracy. Reach 75% accuracy to reveal the flag. Visit the service in your browser:
+
+http://chatelaine.cylabacademy.net:27848/
+
+Instance
+Expires in 13:54
+Hints
+1. You get 16 updates per run, and correctly classified points do not change the model in the classic rule.
+
+2. The learning-rate sweep is wide (0.02 through 20.0), so very high values can swing the boundary aggressively.
+
+3. 3-bit parity cannot be perfectly separated by one plane; 75% is the best achievable target for this setup.
+
+---
+
+## 🚀 Exploitation / Solution Path
+
+1. Open the challenge link in a web browser and observe the 3-bit parity dataset displayed in 3D space.
+
+2. Start the perceptron training and observe how the weights and decision plane change during the 16 updates.
+
+3. Adjust the learning-rate slider using different values between 0.02 and 20.0.
+
+4. Observe how changing the learning rate affects the decision plane and classification accuracy.
+
+5. Experiment with different learning-rate values and repeat the training until the accuracy reaches 75%.
+
+6. Once the required accuracy is achieved, retrieve the flag displayed by the challenge.
+---
+
+## 🏁 Flag
+```text
+academy{3b1t_p4r1ty_unl34rn4bl3_l1n34rly_2f460071}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+1. Learned how a perceptron updates its weights to correct misclassified points in a 3D dataset.
+
+2. Understood why 3-bit parity data cannot be perfectly classified using a single decision plane.
+```
+* What commands or tools did you use?
+```text
+1. Browser(chrome)
+```
+---
