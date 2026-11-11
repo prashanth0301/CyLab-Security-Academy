@@ -1,0 +1,52 @@
+---
+tags: [picoCTF2022, Forensics, Easy]
+challenge_name: WPA-ing Out
+solved_date: 2026-11-11
+---
+
+# 🚩 Challenge: [WPA-ing Out]
+![alt text](WPA-ing_Out.png)
+## 📝 Challenge Description
+
+I thought that my password was super-secret, but it turns out that passwords passed over the AIR can be CRACKED, especially if I used the same wireless network password as one in the rockyou.txt credential dump. Use this 'pcap file
+' and the rockyou wordlist. The flag should be entered in the academy{XXXXXX} format.
+
+Hints
+1. Finding the IEEE 802.11 wireless protocol used in the wireless traffic packet capture is easier with wireshark, the JAWS of the network.
+
+2. Aircrack-ng can make a pcap file catch big air...and crack a password.
+
+### Code / Terminal Snippets
+```bash
+1. aircrack-ng -w /usr/share/wordlists/rockyou.txt wpa-ing_out.pcap
+
+```
+
+---
+
+## 🚀 Exploitation / Solution Path
+Detail your step-by-step breakdown to get the flag:
+1. Download the `pcap` file using `wget`.
+2. Crack the key using the aircrack-ng tool withresources of pcap file and rockyout.txt.
+3. The key is the flag and we can also wireshark look out for it.
+
+
+---
+
+## 🏁 Flag
+```text
+academy{mickeymouse}
+```
+
+## 🧠 Key Takeaways & Lessons Learned
+* What did you learn from this specific exploit?
+```
+Learned how the key can be get by using the pcap file and rockyou.txt password list using the tool aircrack-ng.
+```
+* What commands or tools did you use?
+```
+1. wget
+2. aircrack-ng
+3. rockyou.txt
+```
+---
